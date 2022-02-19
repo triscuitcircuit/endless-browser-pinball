@@ -1,0 +1,133 @@
+#+AUTHOR: Tristan Zippert
+#+STARTUP: showeverything
+
+#+LATEX_CLASS_OPTIONS: [11pt]
+#+LATEX_HEADER: \usepackage[margin=1in]{geometry}
+#+LATEX_HEADER: \usepackage{enumitem}
+
+#+LaTeX_HEADER: \setlist{leftmargin=0.25in,nosep}
+#+LaTeX_HEADER: \documentclass[10pt,a4paper,showtrims]{document}
+#+LaTex_HEADER: \usepackage[labelfont=bf]{caption}
+#+LaTeX_HEADER: \hypersetup{colorlinks=true, urlcolor={blue}, linkcolor={blue}}
+
+#+LATEX_HEADER: \usepackage[natbib=true]{biblatex}
+#+LATEX_HEADER: \usepackage{tikz}
+#+LATEX_HEADER: \usetikzlibrary{shapes.misc,shadows,arrows, automata, shapes.multipart, positioning}
+#+LATEX_HEADER: \usepackage[linguistics]{forest}
+
+#+LaTeX_HEADER: \usepackage{sectsty}
+#+LATEX_HEADER: \usepackage{parskip}
+
+#+OTPIONS: h:3
+#+OPTIONS: toc:nil author:nil date:nil
+#+STATUP: inlineimages
+#+begin_export latex
+\begin{flushright}
+    \rule{16cm}{5pt}\vskip1cm
+    \begin{bfseries}
+        \Huge{SOFTWARE REQUIREMENTS\\ SPECIFICATION}\\
+        \vspace{1.5cm}
+        for\\
+        \vspace{1.5cm}
+        Project\\
+        \vspace{1.5cm}
+        \LARGE{Version \myversion}\\
+        \vspace{1.5cm}
+        Prepared by : Tristan Zippert\\
+    Donato Apon \\
+     David DiFrumolo\\
+       Gedeon Rugema\\
+    Connor Lariviere\\ 
+        \vspace{1.5cm}
+        Organization : CityCircuit\\
+        \vspace{1.5cm}
+        \today\\
+    \clearpage
+    \end{bfseries}
+\end{flushright}
+\tableofcontents
+#+end_export
+* Revision History
+  :PROPERTIES:
+  :UNNUMBERED:
+  :END:
+  |Name |Date |Reason for Changes |Version |
+  |---+---+---+---|
+  | Tristan, Donato, David, Gedeon, Connor  | 2/18/2022  | Added Functional Requirements  |  0.01 |
+ 
+* Introduction
+** Purpose
+<Identify the product whose software requirements are specified in this document, including the
+revision or release number. Describe the scope of the product that is covered by this SRS,
+particularly if this SRS describes only part of the system or a single subsystem.>
+** Document Conventions
+** Intended Audience and Reading Suggestions
+** Product Scope
+** References
+* Overall Description
+** Product Perspective
+** Product Functions
+** User Classes and Characteristics
+** Operating Environment
+** Design and Implementation Constraints
+** User Documentation
+** Assumptions and Dependencies
+* External Interface Requirements
+** User Interfaces
+** Hardware Interfaces
+** Software Interfaces
+** Communications Interfaces
+* System Features
+<This template illustrates organizing the functional requirements for the product by system
+features, the major services provided by the product. You may prefer to organize this section by
+use case, mode of operation, user class, object class, functional hierarchy, or combinations of
+these, whatever makes the most logical sense for your product.>
+** Pinball Game System Feature
+*** Description and Priority
+*** Stimulus/Response Sequences
+*** Functional Requirements
+<Itemize the detailed functional requirements associated with this feature. These are the software capabilities that must be present in order for the user to carry out the services provided by the feature, or to execute the use case. Include how the product should respond to anticipated error conditions or invalid inputs. Requirements should be concise, complete, unambiguous, verifiable, and necessary. Use “TBD” as a placeholder to indicate when necessary information is not yet available.>\\
+<Each requirement should be uniquely identified with a sequence number or a meaningful tag of some kind.>
+- REQ-1: :: The Endless Pinball system shall display a continuous path for the user until failure
+- REQ-2: :: The Endless Pinball system shall save the user’s high score data.
+- REQ-3: :: The Endless Pinball system shall register inputs from the user, to manipulate the pinball.
+- REQ-4: :: The Endless Pinball system shall select a specific color for their pinball.
+- REQ-5: :: The Endless Pinball system shall allow the user to adjust the volume.
+- REQ-6: :: The Endless Pinball system shall allow the user to replay the game after failure
+- REQ-7: :: The Endless Pinball system shall allow the user to select the music that plays during the game. 
+- REQ-8: :: The Endless Pinball system shall allow the user to select a theme for their pinball board. 
+- REQ-9: :: The Endless Pinball system shall play specific sound effects when the pinball collides with objects. 
+- REQ-10: :: The Endless Pinball system shall simulate realistic physics bounces for the pinball. 
+- REQ-11: :: The Endless Pinball system shall save the user’s highest score.
+- REQ-12: :: The Endless Pinball system shall vibrate the user’s device when the pinball collides into objects. 
+- REQ-13: :: The Endless Pinball system shall subtract a life point from the user when they fail.
+- REQ-14: :: The Endless Pinball system shall subtract from the users high score when a life point is removed from the user
+- REQ-15: :: The Endless Pinball system shall reset the round when all of the life points are subtracted from the user. 
+** System Feature 2
+* Other Nonfunctional Requirements
+- REQ-1: :: The Endless Pinball system shall load the player’s pinball in 3 seconds 95% of the time. 
+- REQ-2: :: The Endless Pinball system website shall be able to load within 1 second 98% of the time.
+- REQ-3: :: The Endless Pinball system shall display a replay button in 3 seconds after failure 95% of the time
+- REQ-4: :: The Endless Pinball system shall indicate a life point loss within 1 second 95% of the time
+- REQ-5: :: The Endless Pinball system shall provide feedback within one second of the user’s request 99% of the time
+- REQ-6: :: The Endless Pinball system website shall be able to receive web requests from the endless Pinball system within 1 second of data being sent 98% of the time. 
+- REQ-7: :: The Endless Pinball system shall be able to send data successfully to the website 96% percent of the time. 
+- REQ-8: :: The Endless Pinball game system shall be available to the users 99%z of the time. 
+- REQ-9: :: The website system shall be able to log data without error to the database 95% of the time. 
+- REQ-10: :: The website system shall be available to users twenty-four-seven 90% of the time.
+** Performance Requirements
+** Safety Requirements
+** Security Requirements
+** Software Quality Attributes
+** Business Rules
+* Other Requirements
+** Appendix A: Glossary
+   :PROPERTIES:
+   :UNNUMBERED: notoc
+   :END:
+** Appendix B: Analysis Models
+   :PROPERTIES:
+   :UNNUMBERED: notoc
+   :END:
+
+

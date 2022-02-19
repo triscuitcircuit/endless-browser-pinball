@@ -1,0 +1,180 @@
+% Created 2022-02-18 Fri 15:11
+% Intended LaTeX compiler: pdflatex
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{grffile}
+\usepackage{longtable}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{textcomp}
+\usepackage{amssymb}
+\usepackage{capt-of}
+\usepackage{hyperref}
+\usepackage[margin=1in]{geometry}
+\usepackage{enumitem}
+\setlist{leftmargin=0.25in,nosep}
+\documentclass[10pt,a4paper,showtrims]{document}
+\usepackage[labelfont=bf]{caption}
+\hypersetup{colorlinks=true, urlcolor={blue}, linkcolor={blue}}
+\usepackage[natbib=true]{biblatex}
+\usepackage{tikz}
+\usetikzlibrary{shapes.misc,shadows,arrows, automata, shapes.multipart, positioning}
+\usepackage[linguistics]{forest}
+\usepackage{sectsty}
+\usepackage{parskip}
+\date{}
+\title{}
+\hypersetup{
+ pdfauthor={Tristan Zippert},
+ pdftitle={},
+ pdfkeywords={},
+ pdfsubject={},
+ pdfcreator={Emacs 28.0.50 (Org mode 9.4.6)}, 
+ pdflang={English}}
+\begin{document}
+
+\begin{flushright}
+    \rule{16cm}{5pt}\vskip1cm
+    \begin{bfseries}
+        \Huge{SOFTWARE REQUIREMENTS\\ SPECIFICATION}\\
+        \vspace{1.5cm}
+        for\\
+        \vspace{1.5cm}
+        Project\\
+        \vspace{1.5cm}
+        \LARGE{Version \myversion}\\
+        \vspace{1.5cm}
+        Prepared by : Tristan Zippert\\
+    Donato Apon \\
+     David DiFrumolo\\
+       Gedeon Rugema\\
+    Connor Lariviere\\ 
+        \vspace{1.5cm}
+        Organization : CityCircuit\\
+        \vspace{1.5cm}
+        \today\\
+    \clearpage
+    \end{bfseries}
+\end{flushright}
+\tableofcontents
+\section*{Revision History}
+\label{sec:orgcbcec99}
+\begin{center}
+\begin{tabular}{lllr}
+Name & Date & Reason for Changes & Version\\
+\hline
+Tristan, Donato, David, Gedeon, Connor & 2/18/2022 & Added Functional Requirements & 0.01\\
+\end{tabular}
+\end{center}
+
+\section{Introduction}
+\label{sec:orgfd5a4c9}
+\subsection{Purpose}
+\label{sec:orga5389af}
+<Identify the product whose software requirements are specified in this document, including the
+revision or release number. Describe the scope of the product that is covered by this SRS,
+particularly if this SRS describes only part of the system or a single subsystem.>
+\subsection{Document Conventions}
+\label{sec:orgac51caf}
+\subsection{Intended Audience and Reading Suggestions}
+\label{sec:org0d0eae1}
+\subsection{Product Scope}
+\label{sec:org790f241}
+\subsection{References}
+\label{sec:orgfe8b256}
+\section{Overall Description}
+\label{sec:org3eeaa54}
+\subsection{Product Perspective}
+\label{sec:org8495b3d}
+\subsection{Product Functions}
+\label{sec:org239b623}
+\subsection{User Classes and Characteristics}
+\label{sec:org951005f}
+\subsection{Operating Environment}
+\label{sec:org2375658}
+\subsection{Design and Implementation Constraints}
+\label{sec:org149806f}
+\subsection{User Documentation}
+\label{sec:org88fe852}
+\subsection{Assumptions and Dependencies}
+\label{sec:org9d5b6ab}
+\section{External Interface Requirements}
+\label{sec:orgbd650fa}
+\subsection{User Interfaces}
+\label{sec:org446d108}
+\subsection{Hardware Interfaces}
+\label{sec:orgf455400}
+\subsection{Software Interfaces}
+\label{sec:orgc6fd35f}
+\subsection{Communications Interfaces}
+\label{sec:orgaa9b77b}
+\section{System Features}
+\label{sec:orgaa9de0d}
+<This template illustrates organizing the functional requirements for the product by system
+features, the major services provided by the product. You may prefer to organize this section by
+use case, mode of operation, user class, object class, functional hierarchy, or combinations of
+these, whatever makes the most logical sense for your product.>
+\subsection{Pinball Game System Feature}
+\label{sec:org08a89ad}
+\subsubsection{Description and Priority}
+\label{sec:orgdd0428d}
+\subsubsection{Stimulus/Response Sequences}
+\label{sec:org5e7248f}
+\subsubsection{Functional Requirements}
+\label{sec:orgb0b3e7c}
+<Itemize the detailed functional requirements associated with this feature. These are the software capabilities that must be present in order for the user to carry out the services provided by the feature, or to execute the use case. Include how the product should respond to anticipated error conditions or invalid inputs. Requirements should be concise, complete, unambiguous, verifiable, and necessary. Use “TBD” as a placeholder to indicate when necessary information is not yet available.>\\
+<Each requirement should be uniquely identified with a sequence number or a meaningful tag of some kind.>
+\begin{description}
+\item[{REQ-1:}] The Endless Pinball system shall display a continuous path for the user until failure
+\item[{REQ-2:}] The Endless Pinball system shall save the user’s high score data.
+\item[{REQ-3:}] The Endless Pinball system shall register inputs from the user, to manipulate the pinball.
+\item[{REQ-4:}] The Endless Pinball system shall select a specific color for their pinball.
+\item[{REQ-5:}] The Endless Pinball system shall allow the user to adjust the volume.
+\item[{REQ-6:}] The Endless Pinball system shall allow the user to replay the game after failure
+\item[{REQ-7:}] The Endless Pinball system shall allow the user to select the music that plays during the game.
+\item[{REQ-8:}] The Endless Pinball system shall allow the user to select a theme for their pinball board.
+\item[{REQ-9:}] The Endless Pinball system shall play specific sound effects when the pinball collides with objects.
+\item[{REQ-10:}] The Endless Pinball system shall simulate realistic physics bounces for the pinball.
+\item[{REQ-11:}] The Endless Pinball system shall save the user’s highest score.
+\item[{REQ-12:}] The Endless Pinball system shall vibrate the user’s device when the pinball collides into objects.
+\item[{REQ-13:}] The Endless Pinball system shall subtract a life point from the user when they fail.
+\item[{REQ-14:}] The Endless Pinball system shall subtract from the users high score when a life point is removed from the user
+\item[{REQ-15:}] The Endless Pinball system shall reset the round when all of the life points are subtracted from the user.
+\end{description}
+\subsection{System Feature 2}
+\label{sec:orga823e2e}
+\section{Other Nonfunctional Requirements}
+\label{sec:org6c62b8d}
+\begin{description}
+\item[{REQ-1:}] The Endless Pinball system shall load the player’s pinball in 3 seconds 95\% of the time.
+\item[{REQ-2:}] The Endless Pinball system website shall be able to load within 1 second 98\% of the time.
+\item[{REQ-3:}] The Endless Pinball system shall display a replay button in 3 seconds after failure 95\% of the time
+\item[{REQ-4:}] The Endless Pinball system shall indicate a life point loss within 1 second 95\% of the time
+\item[{REQ-5:}] The Endless Pinball system shall provide feedback within one second of the user’s request 99\% of the time
+\item[{REQ-6:}] The Endless Pinball system website shall be able to receive web requests from the endless Pinball system within 1 second of data being sent 98\% of the time.
+\item[{REQ-7:}] The Endless Pinball system shall be able to send data successfully to the website 96\% percent of the time.
+\item[{REQ-8:}] The Endless Pinball game system shall be available to the users 99\%z of the time.
+\item[{REQ-9:}] The website system shall be able to log data without error to the database 95\% of the time.
+\item[{REQ-10:}] The website system shall be available to users twenty-four-seven 90\% of the time.
+\end{description}
+\subsection{Performance Requirements}
+\label{sec:org99b9144}
+\subsection{Safety Requirements}
+\label{sec:orgfd50c6d}
+\subsection{Security Requirements}
+\label{sec:org9e72789}
+\subsection{Software Quality Attributes}
+\label{sec:orgebf762d}
+\subsection{Business Rules}
+\label{sec:orgead8acc}
+\section{Other Requirements}
+\label{sec:orgca19dc7}
+\subsection*{Appendix A: Glossary}
+\label{sec:org0523146}
+\subsection*{Appendix B: Analysis Models}
+\label{sec:org5392567}
+\end{document}
