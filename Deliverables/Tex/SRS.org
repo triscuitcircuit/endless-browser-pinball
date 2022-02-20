@@ -29,7 +29,7 @@
         \vspace{1.5cm}
         for\\
         \vspace{1.5cm}
-        Project\\
+        Endless Pinball\\
         \vspace{1.5cm}
         \LARGE{Version \myversion}\\
         \vspace{1.5cm}
@@ -39,7 +39,7 @@
        Gedeon Rugema\\
     Connor Lariviere\\ 
         \vspace{1.5cm}
-        Organization : CityCircuit\\
+        Organization : CircuitCity\\
         \vspace{1.5cm}
         \today\\
     \clearpage
