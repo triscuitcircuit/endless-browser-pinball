@@ -1,19 +1,19 @@
 mod states;
-
+use bevy::window::WindowMode;
 use states::*;
 use bevy::prelude::*;
 use bevy_kira_audio::AudioPlugin;
 
+#[bevy_main]
 fn main() {
     App::new()
         .insert_resource(WindowDescriptor {
-            title: "Endless Pinball".to_string(),
-            width: 700.,
-            height: 700.,
+            resizable: false,
+            mode: WindowMode::BorderlessFullscreen,
             ..Default::default()
         })
         .add_plugins(DefaultPlugins)
-        .add_plugin(AudioPlugin)
+        // .add_plugin(AudioPlugin)
         // Insert as resource the initial value for the settings resources
         .insert_resource(DisplayQuality::Medium)
         .insert_resource(Volume(7))

@@ -1,4 +1,5 @@
 use bevy::{app::AppExit, prelude::*};
+
 use crate::states::*;
 
 
@@ -506,6 +507,7 @@ fn menu_action(
     ) {
     for (interaction, menu_button_action) in interaction_query.iter() {
         if *interaction == Interaction::Clicked {
+            println!("clicked");
             match menu_button_action {
                 MenuButtonAction::Quit => app_exit_events.send(AppExit),
                 MenuButtonAction::Play => {

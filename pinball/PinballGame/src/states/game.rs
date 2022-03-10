@@ -18,8 +18,8 @@ impl Plugin for GamePlugin {
             .add_system_set(
                 SystemSet::on_update(GameState::Game)
                     .with_system(game)
-                    .with_system(pause_action)
                     .with_system(button_system)
+                    .with_system(pause_action)
             )
             .add_system_set(
                 SystemSet::on_exit(GameState::Game)
@@ -49,9 +49,9 @@ fn game_setup(
         transform: Transform::from_xyz(3.0, 8.0, 5.0),
         ..Default::default()
     });
-    let asset_handle= asset_server.load("music/Disco.ogg");
-    let instance_handle = audio.play_looped(asset_handle);
-    commands.insert_resource(LoopAudioInstanceHandle{instance_handle});
+    // let asset_handle= asset_server.load("music/Disco.ogg");
+    // let instance_handle = audio.play_looped(asset_handle);
+    // commands.insert_resource(LoopAudioInstanceHandle{instance_handle});
     let button_style = Style {
         size: Size::new(Val::Percent(80.0), Val::Percent(80.0)),
         margin: Rect::all(Val::Px(20.0)),
