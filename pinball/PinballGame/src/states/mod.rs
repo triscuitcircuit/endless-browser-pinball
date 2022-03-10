@@ -3,7 +3,7 @@ use bevy::prelude::*;
 const NORMAL_BUTTON: Color = Color::rgb(0.15, 0.15, 0.15);
 const HOVERED_BUTTON: Color = Color::rgb(0.25, 0.25, 0.25);
 const HOVERED_PRESSED_BUTTON: Color = Color::rgb(0.25, 0.65, 0.25);
-const PRESSED_BUTTON: Color = Color::rgb(0.35, 0.75, 0.35);
+const PRESSED_BUTTON: Color = Color::rgb(0.09, 0.09, 0.75);
 const TEXT_COLOR: Color = Color::FUCHSIA;
 
 
@@ -33,6 +33,12 @@ pub enum DisplayQuality {
 // One of the two settings that can be set through the menu. It will be a resource in the app
 #[derive(Debug, Component, PartialEq, Eq, Clone, Copy)]
 pub struct Volume(pub u32);
+
+impl Volume {
+    pub fn get_volume(&self) ->u32{
+        self.0
+    }
+}
 // Generic system that takes a component as a parameter, and will despawn all entities with that component
 pub fn despawn_screen<T: Component>(to_despawn: Query<Entity, With<T>>, mut commands: Commands) {
     for entity in to_despawn.iter() {
@@ -70,7 +76,7 @@ pub struct OnDisplaySettingsMenuScreen;
 pub struct OnSoundSettingsMenuScreen;
 
 
-// Tag component used to mark wich setting is currently selected
+// Tag component used to mark which setting is currently selected
 #[derive(Component)]
 pub struct SelectedOption;
 
@@ -86,17 +92,6 @@ pub enum MenuButtonAction {
     Quit,
 }
 
-// Tick the timer, and change state when finished
-pub fn game(
-    time: Res<Time>,
-    mut game_state: ResMut<State<GameState>>,
-    mut timer: ResMut<GameTimer>,
-) {
-    if timer.0.tick(time.delta()).finished() {
-        game_state.set(GameState::Menu).unwrap();
-    }
-}
-
 // Tag component used to tag entities added on the splash screen
 #[derive(Component)]
 pub struct OnSplashScreen;
@@ -106,3 +101,5 @@ pub struct SplashTimer(Timer);
 pub(crate) mod menu;
 pub(crate) mod splash;
 pub(crate) mod game;
+pub(crate) mod pausemenu;
+pub(crate) mod utils;

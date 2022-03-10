@@ -1,4 +1,4 @@
-% Created 2022-02-19 Sat 20:57
+% Created 2022-03-03 Thu 18:34
 % Intended LaTeX compiler: pdflatex
 \documentclass[11pt]{article}
 \usepackage[utf8]{inputenc}
@@ -44,7 +44,7 @@
         \vspace{1.5cm}
         for\\
         \vspace{1.5cm}
-        Endless Pinball\\
+        Project\\
         \vspace{1.5cm}
         \LARGE{Version \myversion}\\
         \vspace{1.5cm}
@@ -54,7 +54,7 @@
        Gedeon Rugema\\
     Connor Lariviere\\ 
         \vspace{1.5cm}
-        Organization : CircuitCity\\
+        Organization : CityCircuit\\
         \vspace{1.5cm}
         \today\\
     \clearpage
@@ -62,72 +62,78 @@
 \end{flushright}
 \tableofcontents
 \section*{Revision History}
-\label{sec:orgaef73a0}
+\label{sec:org9b34e07}
 \begin{center}
 \begin{tabular}{lllr}
 Name & Date & Reason for Changes & Version\\
 \hline
 Tristan, Donato, David, Gedeon, Connor & 2/18/2022 & Added Functional Requirements & 0.01\\
+Tristan, Donato, David, Gedeon, Connor & 3/2/2022 &  & 0.02\\
 \end{tabular}
 \end{center}
-
 \section{Introduction}
-\label{sec:org7a998c5}
+\label{sec:orga38c260}
 \subsection{Purpose}
-\label{sec:orgfb60f87}
-<Identify the product whose software requirements are specified in this document, including the
-revision or release number. Describe the scope of the product that is covered by this SRS,
-particularly if this SRS describes only part of the system or a single subsystem.>
+\label{sec:orgc2e2695}
+The purpose of this document is to outline the requirement specification for the Endless Pinball game and its connected website. The scope of this document is to outline the interactions the user would have with the game, as well as to highlight what needs to be done during the development phase of this project. 
 \subsection{Document Conventions}
-\label{sec:orga8df548}
+\label{sec:org9845e43}
 \subsection{Intended Audience and Reading Suggestions}
-\label{sec:org1fa0c88}
+\label{sec:org15def12}
 \subsection{Product Scope}
-\label{sec:org33df046}
+\label{sec:orgd54810b}
 \subsection{References}
-\label{sec:org641512a}
+\label{sec:org9f2808f}
 \section{Overall Description}
-\label{sec:org3ee4ccc}
+\label{sec:orgb8d040b}
 \subsection{Product Perspective}
-\label{sec:orga0329fd}
+\label{sec:org2463a01}
 \subsection{Product Functions}
-\label{sec:org8dfae52}
+\label{sec:orgdeaf73e}
 \subsection{User Classes and Characteristics}
-\label{sec:org63cdcb8}
+\label{sec:org19c4b78}
 \subsection{Operating Environment}
-\label{sec:org5a38786}
+\label{sec:org55f9c03}
 \subsection{Design and Implementation Constraints}
-\label{sec:orgdf3205b}
+\label{sec:orgacff728}
 \subsection{User Documentation}
-\label{sec:orgc500afa}
+\label{sec:orgc41ebbd}
 \subsection{Assumptions and Dependencies}
-\label{sec:org942da58}
+\label{sec:orgb5bbdbb}
 \section{External Interface Requirements}
-\label{sec:org8b629b2}
+\label{sec:orgc631535}
 \subsection{User Interfaces}
-\label{sec:orgfdea334}
+\label{sec:org7904af6}
+The software outlined in this document will have two sets of user interfaces, one for the website and one for the Endless Pinball game itself. 
+\begin{description}
+\item[{Endless Pinball:}] The Endless Pinball game will be designed using the \textbf{MVC} architecture design pattern for its UI as we want the controller to handle any interactable scenarios for the user. The controller would handle the events that the user would use to control the pinball, and to select in the pause menu. The view, in our case, would display data such as the score the user currently has and what power-up they have. The Model part would manage all the incoming data and the View would display it.
+\item[{Endless Pinball website:}] Our website would use the Client-Server architecture, as it is intended just to display the high scores from the game. The website would receive POST requests from the game, and would have no controller for user interaction. This will allow the user to visit the site, and the site will update the view and display it to the user when a new high score is received.
+\end{description}
 \subsection{Hardware Interfaces}
-\label{sec:org639c6bb}
+\label{sec:org1316e46}
+The game will interact with the phones vibration motors to make the game more interactive, and could also interact with the phones gyro sensor to control the pinball. The game will also interact with the phones internal GPU in order to render the game. 
 \subsection{Software Interfaces}
-\label{sec:org0cabcae}
+\label{sec:org800a726}
 \subsection{Communications Interfaces}
-\label{sec:orgf33e8f5}
+\label{sec:orgddde17a}
+The game will use GET requests in the form of JSON to the game application,
+and the game application will use POST to post user uploaded pictures and the high score from the user. Communication is done between the website
+and the Endless Browser game application, allowing users to upload their high score. 
 \section{System Features}
-\label{sec:orgce40aa4}
+\label{sec:org4af94b1}
 <This template illustrates organizing the functional requirements for the product by system
 features, the major services provided by the product. You may prefer to organize this section by
 use case, mode of operation, user class, object class, functional hierarchy, or combinations of
 these, whatever makes the most logical sense for your product.>
 \subsection{Pinball Game System Feature}
-\label{sec:org49d646e}
+\label{sec:org98a5326}
 \subsubsection{Description and Priority}
-\label{sec:org46dbc81}
+\label{sec:orgec63648}
 \subsubsection{Stimulus/Response Sequences}
-\label{sec:org7e9a25a}
+\label{sec:org93b0be6}
 \subsubsection{Functional Requirements}
-\label{sec:org3b55e13}
-<Itemize the detailed functional requirements associated with this feature. These are the software capabilities that must be present in order for the user to carry out the services provided by the feature, or to execute the use case. Include how the product should respond to anticipated error conditions or invalid inputs. Requirements should be concise, complete, unambiguous, verifiable, and necessary. Use “TBD” as a placeholder to indicate when necessary information is not yet available.>\\
-<Each requirement should be uniquely identified with a sequence number or a meaningful tag of some kind.>
+\label{sec:org16aa4b3}
+Functional Requirements are as follows for both the Endless Pinball app and the Endless Pinball website. 
 \begin{description}
 \item[{REQ-1:}] The Endless Pinball system shall display a continuous path for the user until failure
 \item[{REQ-2:}] The Endless Pinball system shall save the user’s high score data.
@@ -146,9 +152,9 @@ these, whatever makes the most logical sense for your product.>
 \item[{REQ-15:}] The Endless Pinball system shall reset the round when all of the life points are subtracted from the user.
 \end{description}
 \subsection{System Feature 2}
-\label{sec:org8a105f4}
+\label{sec:org0a77174}
 \section{Other Nonfunctional Requirements}
-\label{sec:org608e25b}
+\label{sec:org0fbc4d6}
 \begin{description}
 \item[{REQ-1:}] The Endless Pinball system shall load the player’s pinball in 3 seconds 95\% of the time.
 \item[{REQ-2:}] The Endless Pinball system website shall be able to load within 1 second 98\% of the time.
@@ -162,19 +168,22 @@ these, whatever makes the most logical sense for your product.>
 \item[{REQ-10:}] The website system shall be available to users twenty-four-seven 90\% of the time.
 \end{description}
 \subsection{Performance Requirements}
-\label{sec:org9d223a8}
+\label{sec:orgcccfe9b}
 \subsection{Safety Requirements}
-\label{sec:org4336555}
+\label{sec:org4a498e1}
 \subsection{Security Requirements}
-\label{sec:orgd1fbeb5}
+\label{sec:org6550ef9}
 \subsection{Software Quality Attributes}
-\label{sec:orgaa62b25}
+\label{sec:org1f5fe7e}
 \subsection{Business Rules}
-\label{sec:org5cf1f28}
+\label{sec:org53e0420}
 \section{Other Requirements}
-\label{sec:org9eda1b8}
+\label{sec:org104a584}
 \subsection*{Appendix A: Glossary}
-\label{sec:orgab4db96}
+\label{sec:org0a3bda7}
+\begin{description}
+\item[{MVC (Model View Controller):}] Model View Controller is a design pattern defining interaction between View, Controllers and Models.
+\end{description}
 \subsection*{Appendix B: Analysis Models}
-\label{sec:org9e93733}
+\label{sec:orgb83e234}
 \end{document}

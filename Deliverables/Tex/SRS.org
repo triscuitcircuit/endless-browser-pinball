@@ -29,7 +29,7 @@
         \vspace{1.5cm}
         for\\
         \vspace{1.5cm}
-        Endless Pinball\\
+        Project\\
         \vspace{1.5cm}
         \LARGE{Version \myversion}\\
         \vspace{1.5cm}
@@ -39,7 +39,7 @@
        Gedeon Rugema\\
     Connor Lariviere\\ 
         \vspace{1.5cm}
-        Organization : CircuitCity\\
+        Organization : CityCircuit\\
         \vspace{1.5cm}
         \today\\
     \clearpage
@@ -54,12 +54,10 @@
   |Name |Date |Reason for Changes |Version |
   |---+---+---+---|
   | Tristan, Donato, David, Gedeon, Connor  | 2/18/2022  | Added Functional Requirements  |  0.01 |
- 
+   | Tristan, Donato, David, Gedeon, Connor  | 3/2/2022  |  |  0.02 |
 * Introduction
 ** Purpose
-<Identify the product whose software requirements are specified in this document, including the
-revision or release number. Describe the scope of the product that is covered by this SRS,
-particularly if this SRS describes only part of the system or a single subsystem.>
+The purpose of this document is to outline the requirement specification for the Endless Pinball game and its connected website. The scope of this document is to outline the interactions the user would have with the game, as well as to highlight what needs to be done during the development phase of this project. 
 ** Document Conventions
 ** Intended Audience and Reading Suggestions
 ** Product Scope
@@ -74,9 +72,16 @@ particularly if this SRS describes only part of the system or a single subsystem
 ** Assumptions and Dependencies
 * External Interface Requirements
 ** User Interfaces
+The software outlined in this document will have two sets of user interfaces, one for the website and one for the Endless Pinball game itself. 
+- Endless Pinball: :: The Endless Pinball game will be designed using the *MVC* architecture design pattern for its UI as we want the controller to handle any interactable scenarios for the user. The controller would handle the events that the user would use to control the pinball, and to select in the pause menu. The view, in our case, would display data such as the score the user currently has and what power-up they have. The Model part would manage all the incoming data and the View would display it. 
+- Endless Pinball website: ::  Our website would use the Client-Server architecture, as it is intended just to display the high scores from the game. The website would receive POST requests from the game, and would have no controller for user interaction. This will allow the user to visit the site, and the site will update the view and display it to the user when a new high score is received. 
 ** Hardware Interfaces
+The game will interact with the phones vibration motors to make the game more interactive, and could also interact with the phones gyro sensor to control the pinball. The game will also interact with the phones internal GPU in order to render the game. 
 ** Software Interfaces
 ** Communications Interfaces
+The game will use GET requests in the form of JSON to the game application,
+and the game application will use POST to post user uploaded pictures and the high score from the user. Communication is done between the website
+and the Endless Browser game application, allowing users to upload their high score. 
 * System Features
 <This template illustrates organizing the functional requirements for the product by system
 features, the major services provided by the product. You may prefer to organize this section by
@@ -86,8 +91,7 @@ these, whatever makes the most logical sense for your product.>
 *** Description and Priority
 *** Stimulus/Response Sequences
 *** Functional Requirements
-<Itemize the detailed functional requirements associated with this feature. These are the software capabilities that must be present in order for the user to carry out the services provided by the feature, or to execute the use case. Include how the product should respond to anticipated error conditions or invalid inputs. Requirements should be concise, complete, unambiguous, verifiable, and necessary. Use “TBD” as a placeholder to indicate when necessary information is not yet available.>\\
-<Each requirement should be uniquely identified with a sequence number or a meaningful tag of some kind.>
+Functional Requirements are as follows for both the Endless Pinball app and the Endless Pinball website. 
 - REQ-1: :: The Endless Pinball system shall display a continuous path for the user until failure
 - REQ-2: :: The Endless Pinball system shall save the user’s high score data.
 - REQ-3: :: The Endless Pinball system shall register inputs from the user, to manipulate the pinball.
@@ -125,9 +129,8 @@ these, whatever makes the most logical sense for your product.>
    :PROPERTIES:
    :UNNUMBERED: notoc
    :END:
+- MVC (Model View Controller): :: Model View Controller is a design pattern defining interaction between View, Controllers and Models. 
 ** Appendix B: Analysis Models
    :PROPERTIES:
    :UNNUMBERED: notoc
    :END:
-
-
