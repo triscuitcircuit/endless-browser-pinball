@@ -447,7 +447,7 @@ fn sound_settings_menu_setup(
                         ),
                         ..Default::default()
                     });
-                    for volume_setting in [0, 1, 2, 3, 4, 5, 6, 7, 8, 9] {
+                    for volume_setting in [0,1,2,3,4,5] {
                         let mut entity = parent.spawn_bundle(ButtonBundle {
                             style: Style {
                                 size: Size::new(Val::Px(30.0), Val::Px(65.0)),
@@ -476,24 +476,6 @@ fn sound_settings_menu_setup(
                     });
                 });
         });
-}
-
-// This system handles changing all buttons color based on mouse interaction
-fn button_system(
-    mut interaction_query: Query<
-        (&Interaction, &mut UiColor, Option<&SelectedOption>),
-        (Changed<Interaction>, With<Button>),
-    >,
-) {
-    for (interaction, mut color, selected) in interaction_query.iter_mut() {
-        *color = match (*interaction, selected) {
-            (Interaction::Clicked, _) => PRESSED_BUTTON.into(),
-            (Interaction::Hovered, Some(_)) => HOVERED_PRESSED_BUTTON.into(),
-            (Interaction::Hovered, None) => HOVERED_BUTTON.into(),
-            (Interaction::None, Some(_)) => PRESSED_BUTTON.into(),
-            (Interaction::None, None) => NORMAL_BUTTON.into(),
-        }
-    }
 }
 
 fn menu_action(

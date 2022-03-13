@@ -155,15 +155,6 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "30696a84d817107fc028e049980e09d5e140e8da8f1caeb17e8e950658a3cea9"
 
 [[package]]
-name = "atomic"
-version = "0.5.1"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "b88d82667eca772c4aa12f0f1348b3ae643424c8876448f3f7bd5787032e234c"
-dependencies = [
- "autocfg",
-]
-
-[[package]]
 name = "autocfg"
 version = "1.1.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -182,46 +173,19 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "904dfeac50f3cdaba28fc6f57fdcddb75f49ed61346676a78c4ffe55877802fd"
 
 [[package]]
-name = "basedrop"
-version = "0.1.2"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "47611e530cf21bb89fbfe322aa8b1feae1ace33ff65f8ebf40fe3b4b99b7c9a2"
-
-[[package]]
 name = "bevy"
 version = "0.6.0"
-source = "git+https://github.com/ManevilleF/bevy#7de6cd45e6320fb060649377c5e1cf2d66bd1f47"
+source = "git+https://github.com/ManevilleF/bevy?branch=feat/bevy_ui_touch_input#14c3eb041f99d4c582682d24a9276bd39c546bc1"
 dependencies = [
- "bevy_internal 0.6.0 (git+https://github.com/ManevilleF/bevy)",
-]
-
-[[package]]
-name = "bevy"
-version = "0.6.1"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "97342ea2f3bad36be2ded1d1fbd569ff83147b70697f12f1579e87a7480afa36"
-dependencies = [
- "bevy_internal 0.6.0 (registry+https://github.com/rust-lang/crates.io-index)",
+ "bevy_internal",
 ]
 
 [[package]]
 name = "bevy-crevice-derive"
 version = "0.6.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "d4cf594c9277eb1e426f45a00eaf70aa9ffdf479268d7e4538270263811e20bc"
+source = "git+https://github.com/ManevilleF/bevy?branch=feat/bevy_ui_touch_input#14c3eb041f99d4c582682d24a9276bd39c546bc1"
 dependencies = [
- "bevy_macro_utils 0.6.0 (registry+https://github.com/rust-lang/crates.io-index)",
- "proc-macro2",
- "quote",
- "syn",
-]
-
-[[package]]
-name = "bevy-crevice-derive"
-version = "0.6.0"
-source = "git+https://github.com/ManevilleF/bevy#7de6cd45e6320fb060649377c5e1cf2d66bd1f47"
-dependencies = [
- "bevy_macro_utils 0.6.0 (git+https://github.com/ManevilleF/bevy)",
+ "bevy_macro_utils",
  "proc-macro2",
  "quote",
  "syn",
@@ -231,33 +195,18 @@ dependencies = [
 name = "bevy-ios-example"
 version = "0.1.0"
 dependencies = [
- "bevy 0.6.0",
- "bevy_kira_audio",
+ "bevy",
 ]
 
 [[package]]
 name = "bevy_app"
 version = "0.6.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "58fe3d3f4140fb11cd294f43be7cb66a5783d9277ba0270743e2860e32b25ab5"
+source = "git+https://github.com/ManevilleF/bevy?branch=feat/bevy_ui_touch_input#14c3eb041f99d4c582682d24a9276bd39c546bc1"
 dependencies = [
- "bevy_derive 0.6.0 (registry+https://github.com/rust-lang/crates.io-index)",
- "bevy_ecs 0.6.1",
- "bevy_reflect 0.6.0 (registry+https://github.com/rust-lang/crates.io-index)",
- "bevy_utils 0.6.0 (registry+https://github.com/rust-lang/crates.io-index)",
- "wasm-bindgen",
- "web-sys",
-]
-
-[[package]]
-name = "bevy_app"
-version = "0.6.0"
-source = "git+https://github.com/ManevilleF/bevy#7de6cd45e6320fb060649377c5e1cf2d66bd1f47"
-dependencies = [
- "bevy_derive 0.6.0 (git+https://github.com/ManevilleF/bevy)",
- "bevy_ecs 0.6.0",
- "bevy_reflect 0.6.0 (git+https://github.com/ManevilleF/bevy)",
- "bevy_utils 0.6.0 (git+https://github.com/ManevilleF/bevy)",
+ "bevy_derive",
+ "bevy_ecs",
+ "bevy_reflect",
+ "bevy_utils",
  "wasm-bindgen",
  "web-sys",
 ]
@@ -265,43 +214,16 @@ dependencies = [
 [[package]]
 name = "bevy_asset"
 version = "0.6.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "eb68a0259e2f857a32c4f05eb9b9447db1072297c61864ad07d02fea1838bde9"
+source = "git+https://github.com/ManevilleF/bevy?branch=feat/bevy_ui_touch_input#14c3eb041f99d4c582682d24a9276bd39c546bc1"
 dependencies = [
  "anyhow",
- "bevy_app 0.6.0 (registry+https://github.com/rust-lang/crates.io-index)",
- "bevy_diagnostic 0.6.0 (registry+https://github.com/rust-lang/crates.io-index)",
- "bevy_ecs 0.6.1",
- "bevy_log 0.6.0 (registry+https://github.com/rust-lang/crates.io-index)",
- "bevy_reflect 0.6.0 (registry+https://github.com/rust-lang/crates.io-index)",
- "bevy_tasks 0.6.0 (registry+https://github.com/rust-lang/crates.io-index)",
- "bevy_utils 0.6.0 (registry+https://github.com/rust-lang/crates.io-index)",
- "crossbeam-channel",
- "downcast-rs",
- "js-sys",
- "ndk-glue 0.5.1",
- "parking_lot",
- "rand",
- "serde",
- "thiserror",
- "wasm-bindgen",
- "wasm-bindgen-futures",
- "web-sys",
-]
-
-[[package]]
-name = "bevy_asset"
-version = "0.6.0"
-source = "git+https://github.com/ManevilleF/bevy#7de6cd45e6320fb060649377c5e1cf2d66bd1f47"
-dependencies = [
- "anyhow",
- "bevy_app 0.6.0 (git+https://github.com/ManevilleF/bevy)",
- "bevy_diagnostic 0.6.0 (git+https://github.com/ManevilleF/bevy)",
- "bevy_ecs 0.6.0",
- "bevy_log 0.6.0 (git+https://github.com/ManevilleF/bevy)",
- "bevy_reflect 0.6.0 (git+https://github.com/ManevilleF/bevy)",
- "bevy_tasks 0.6.0 (git+https://github.com/ManevilleF/bevy)",
- "bevy_utils 0.6.0 (git+https://github.com/ManevilleF/bevy)",
+ "bevy_app",
+ "bevy_diagnostic",
+ "bevy_ecs",
+ "bevy_log",
+ "bevy_reflect",
+ "bevy_tasks",
+ "bevy_utils",
  "crossbeam-channel",
  "downcast-rs",
  "js-sys",
@@ -319,14 +241,14 @@ dependencies = [
 [[package]]
 name = "bevy_audio"
 version = "0.6.0"
-source = "git+https://github.com/ManevilleF/bevy#7de6cd45e6320fb060649377c5e1cf2d66bd1f47"
+source = "git+https://github.com/ManevilleF/bevy?branch=feat/bevy_ui_touch_input#14c3eb041f99d4c582682d24a9276bd39c546bc1"
 dependencies = [
  "anyhow",
- "bevy_app 0.6.0 (git+https://github.com/ManevilleF/bevy)",
- "bevy_asset 0.6.0 (git+https://github.com/ManevilleF/bevy)",
- "bevy_ecs 0.6.0",
- "bevy_reflect 0.6.0 (git+https://github.com/ManevilleF/bevy)",
- "bevy_utils 0.6.0 (git+https://github.com/ManevilleF/bevy)",
+ "bevy_app",
+ "bevy_asset",
+ "bevy_ecs",
+ "bevy_reflect",
+ "bevy_utils",
  "parking_lot",
  "rodio",
 ]
@@ -334,77 +256,37 @@ dependencies = [
 [[package]]
 name = "bevy_core"
 version = "0.6.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "1c156430a5312c04a1b25fa434eeeab6349a41c6bb96ea0385406d53b3c43658"
+source = "git+https://github.com/ManevilleF/bevy?branch=feat/bevy_ui_touch_input#14c3eb041f99d4c582682d24a9276bd39c546bc1"
 dependencies = [
- "bevy_app 0.6.0 (registry+https://github.com/rust-lang/crates.io-index)",
- "bevy_derive 0.6.0 (registry+https://github.com/rust-lang/crates.io-index)",
- "bevy_ecs 0.6.1",
- "bevy_math 0.6.0 (registry+https://github.com/rust-lang/crates.io-index)",
- "bevy_reflect 0.6.0 (registry+https://github.com/rust-lang/crates.io-index)",
- "bevy_tasks 0.6.0 (registry+https://github.com/rust-lang/crates.io-index)",
- "bevy_utils 0.6.0 (registry+https://github.com/rust-lang/crates.io-index)",
- "bytemuck",
-]
-
-[[package]]
-name = "bevy_core"
-version = "0.6.0"
-source = "git+https://github.com/ManevilleF/bevy#7de6cd45e6320fb060649377c5e1cf2d66bd1f47"
-dependencies = [
- "bevy_app 0.6.0 (git+https://github.com/ManevilleF/bevy)",
- "bevy_derive 0.6.0 (git+https://github.com/ManevilleF/bevy)",
- "bevy_ecs 0.6.0",
- "bevy_math 0.6.0 (git+https://github.com/ManevilleF/bevy)",
- "bevy_reflect 0.6.0 (git+https://github.com/ManevilleF/bevy)",
- "bevy_tasks 0.6.0 (git+https://github.com/ManevilleF/bevy)",
- "bevy_utils 0.6.0 (git+https://github.com/ManevilleF/bevy)",
+ "bevy_app",
+ "bevy_derive",
+ "bevy_ecs",
+ "bevy_math",
+ "bevy_reflect",
+ "bevy_tasks",
+ "bevy_utils",
  "bytemuck",
 ]
 
 [[package]]
 name = "bevy_core_pipeline"
 version = "0.6.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "5b422dca94195c904964ab21bc4557fbd11f692c299d46e38364715ac931841e"
+source = "git+https://github.com/ManevilleF/bevy?branch=feat/bevy_ui_touch_input#14c3eb041f99d4c582682d24a9276bd39c546bc1"
 dependencies = [
- "bevy_app 0.6.0 (registry+https://github.com/rust-lang/crates.io-index)",
- "bevy_asset 0.6.0 (registry+https://github.com/rust-lang/crates.io-index)",
- "bevy_core 0.6.0 (registry+https://github.com/rust-lang/crates.io-index)",
- "bevy_ecs 0.6.1",
- "bevy_render 0.6.1",
-]
-
-[[package]]
-name = "bevy_core_pipeline"
-version = "0.6.0"
-source = "git+https://github.com/ManevilleF/bevy#7de6cd45e6320fb060649377c5e1cf2d66bd1f47"
-dependencies = [
- "bevy_app 0.6.0 (git+https://github.com/ManevilleF/bevy)",
- "bevy_asset 0.6.0 (git+https://github.com/ManevilleF/bevy)",
- "bevy_core 0.6.0 (git+https://github.com/ManevilleF/bevy)",
- "bevy_ecs 0.6.0",
- "bevy_render 0.6.0",
+ "bevy_app",
+ "bevy_asset",
+ "bevy_core",
+ "bevy_ecs",
+ "bevy_render",
+ "bevy_utils",
 ]
 
 [[package]]
 name = "bevy_crevice"
 version = "0.6.0"
-source = "git+https://github.com/ManevilleF/bevy#7de6cd45e6320fb060649377c5e1cf2d66bd1f47"
+source = "git+https://github.com/ManevilleF/bevy?branch=feat/bevy_ui_touch_input#14c3eb041f99d4c582682d24a9276bd39c546bc1"
 dependencies = [
- "bevy-crevice-derive 0.6.0 (git+https://github.com/ManevilleF/bevy)",
- "bytemuck",
- "glam",
- "mint",
-]
-
-[[package]]
-name = "bevy_crevice"
-version = "0.6.1"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "c684de72f710da0a701d1d2fe2a481241709d66f43215bcc9d7f9f0818d1cb15"
-dependencies = [
- "bevy-crevice-derive 0.6.0 (registry+https://github.com/rust-lang/crates.io-index)",
+ "bevy-crevice-derive",
  "bytemuck",
  "glam",
  "mint",
@@ -413,20 +295,9 @@ dependencies = [
 [[package]]
 name = "bevy_derive"
 version = "0.6.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "918dc0dff01e8b4e8f989db89d74fd4042810ea80a70642d0459b3c265995e59"
+source = "git+https://github.com/ManevilleF/bevy?branch=feat/bevy_ui_touch_input#14c3eb041f99d4c582682d24a9276bd39c546bc1"
 dependencies = [
- "bevy_macro_utils 0.6.0 (registry+https://github.com/rust-lang/crates.io-index)",
- "quote",
- "syn",
-]
-
-[[package]]
-name = "bevy_derive"
-version = "0.6.0"
-source = "git+https://github.com/ManevilleF/bevy#7de6cd45e6320fb060649377c5e1cf2d66bd1f47"
-dependencies = [
- "bevy_macro_utils 0.6.0 (git+https://github.com/ManevilleF/bevy)",
+ "bevy_macro_utils",
  "quote",
  "syn",
 ]
@@ -434,56 +305,25 @@ dependencies = [
 [[package]]
 name = "bevy_diagnostic"
 version = "0.6.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "adbe98f48873d4b20f6479723de18d957f4bc00c653efd36c245e6a66d6e8b71"
+source = "git+https://github.com/ManevilleF/bevy?branch=feat/bevy_ui_touch_input#14c3eb041f99d4c582682d24a9276bd39c546bc1"
 dependencies = [
- "bevy_app 0.6.0 (registry+https://github.com/rust-lang/crates.io-index)",
- "bevy_core 0.6.0 (registry+https://github.com/rust-lang/crates.io-index)",
- "bevy_ecs 0.6.1",
- "bevy_log 0.6.0 (registry+https://github.com/rust-lang/crates.io-index)",
- "bevy_utils 0.6.0 (registry+https://github.com/rust-lang/crates.io-index)",
-]
-
-[[package]]
-name = "bevy_diagnostic"
-version = "0.6.0"
-source = "git+https://github.com/ManevilleF/bevy#7de6cd45e6320fb060649377c5e1cf2d66bd1f47"
-dependencies = [
- "bevy_app 0.6.0 (git+https://github.com/ManevilleF/bevy)",
- "bevy_core 0.6.0 (git+https://github.com/ManevilleF/bevy)",
- "bevy_ecs 0.6.0",
- "bevy_log 0.6.0 (git+https://github.com/ManevilleF/bevy)",
- "bevy_utils 0.6.0 (git+https://github.com/ManevilleF/bevy)",
+ "bevy_app",
+ "bevy_core",
+ "bevy_ecs",
+ "bevy_log",
+ "bevy_utils",
 ]
 
 [[package]]
 name = "bevy_ecs"
 version = "0.6.0"
-source = "git+https://github.com/ManevilleF/bevy#7de6cd45e6320fb060649377c5e1cf2d66bd1f47"
+source = "git+https://github.com/ManevilleF/bevy?branch=feat/bevy_ui_touch_input#14c3eb041f99d4c582682d24a9276bd39c546bc1"
 dependencies = [
  "async-channel",
- "bevy_ecs_macros 0.6.0 (git+https://github.com/ManevilleF/bevy)",
- "bevy_reflect 0.6.0 (git+https://github.com/ManevilleF/bevy)",
- "bevy_tasks 0.6.0 (git+https://github.com/ManevilleF/bevy)",
- "bevy_utils 0.6.0 (git+https://github.com/ManevilleF/bevy)",
- "downcast-rs",
- "fixedbitset",
- "fxhash",
- "serde",
- "thiserror",
-]
-
-[[package]]
-name = "bevy_ecs"
-version = "0.6.1"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "6daf05da2680a14b17a4b669879fa7186abb80e7fbe400fb02c0c62628d1e200"
-dependencies = [
- "async-channel",
- "bevy_ecs_macros 0.6.0 (registry+https://github.com/rust-lang/crates.io-index)",
- "bevy_reflect 0.6.0 (registry+https://github.com/rust-lang/crates.io-index)",
- "bevy_tasks 0.6.0 (registry+https://github.com/rust-lang/crates.io-index)",
- "bevy_utils 0.6.0 (registry+https://github.com/rust-lang/crates.io-index)",
+ "bevy_ecs_macros",
+ "bevy_reflect",
+ "bevy_tasks",
+ "bevy_utils",
  "downcast-rs",
  "fixedbitset",
  "fxhash",
@@ -494,21 +334,9 @@ dependencies = [
 [[package]]
 name = "bevy_ecs_macros"
 version = "0.6.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "c7e9e664b3ea45cfc9ab3251ee0255dfa6410f675b3a405e7bac8e59b2d76aa9"
+source = "git+https://github.com/ManevilleF/bevy?branch=feat/bevy_ui_touch_input#14c3eb041f99d4c582682d24a9276bd39c546bc1"
 dependencies = [
- "bevy_macro_utils 0.6.0 (registry+https://github.com/rust-lang/crates.io-index)",
- "proc-macro2",
- "quote",
- "syn",
-]
-
-[[package]]
-name = "bevy_ecs_macros"
-version = "0.6.0"
-source = "git+https://github.com/ManevilleF/bevy#7de6cd45e6320fb060649377c5e1cf2d66bd1f47"
-dependencies = [
- "bevy_macro_utils 0.6.0 (git+https://github.com/ManevilleF/bevy)",
+ "bevy_macro_utils",
  "proc-macro2",
  "quote",
  "syn",
@@ -517,34 +345,34 @@ dependencies = [
 [[package]]
 name = "bevy_gilrs"
 version = "0.6.0"
-source = "git+https://github.com/ManevilleF/bevy#7de6cd45e6320fb060649377c5e1cf2d66bd1f47"
+source = "git+https://github.com/ManevilleF/bevy?branch=feat/bevy_ui_touch_input#14c3eb041f99d4c582682d24a9276bd39c546bc1"
 dependencies = [
- "bevy_app 0.6.0 (git+https://github.com/ManevilleF/bevy)",
- "bevy_ecs 0.6.0",
- "bevy_input 0.6.0 (git+https://github.com/ManevilleF/bevy)",
- "bevy_utils 0.6.0 (git+https://github.com/ManevilleF/bevy)",
+ "bevy_app",
+ "bevy_ecs",
+ "bevy_input",
+ "bevy_utils",
  "gilrs",
 ]
 
 [[package]]
 name = "bevy_gltf"
 version = "0.6.0"
-source = "git+https://github.com/ManevilleF/bevy#7de6cd45e6320fb060649377c5e1cf2d66bd1f47"
+source = "git+https://github.com/ManevilleF/bevy?branch=feat/bevy_ui_touch_input#14c3eb041f99d4c582682d24a9276bd39c546bc1"
 dependencies = [
  "anyhow",
  "base64",
- "bevy_app 0.6.0 (git+https://github.com/ManevilleF/bevy)",
- "bevy_asset 0.6.0 (git+https://github.com/ManevilleF/bevy)",
- "bevy_core 0.6.0 (git+https://github.com/ManevilleF/bevy)",
- "bevy_ecs 0.6.0",
- "bevy_log 0.6.0 (git+https://github.com/ManevilleF/bevy)",
- "bevy_math 0.6.0 (git+https://github.com/ManevilleF/bevy)",
- "bevy_pbr 0.6.0",
- "bevy_reflect 0.6.0 (git+https://github.com/ManevilleF/bevy)",
- "bevy_render 0.6.0",
- "bevy_scene 0.6.0 (git+https://github.com/ManevilleF/bevy)",
- "bevy_transform 0.6.0 (git+https://github.com/ManevilleF/bevy)",
- "bevy_utils 0.6.0 (git+https://github.com/ManevilleF/bevy)",
+ "bevy_app",
+ "bevy_asset",
+ "bevy_core",
+ "bevy_ecs",
+ "bevy_log",
+ "bevy_math",
+ "bevy_pbr",
+ "bevy_reflect",
+ "bevy_render",
+ "bevy_scene",
+ "bevy_transform",
+ "bevy_utils",
  "gltf",
  "percent-encoding",
  "thiserror",
@@ -553,120 +381,55 @@ dependencies = [
 [[package]]
 name = "bevy_input"
 version = "0.6.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "33989693efa636960dd40e540029ed7b7bc1af2f3eef26c009555b5e2a4e185a"
+source = "git+https://github.com/ManevilleF/bevy?branch=feat/bevy_ui_touch_input#14c3eb041f99d4c582682d24a9276bd39c546bc1"
 dependencies = [
- "bevy_app 0.6.0 (registry+https://github.com/rust-lang/crates.io-index)",
- "bevy_ecs 0.6.1",
- "bevy_math 0.6.0 (registry+https://github.com/rust-lang/crates.io-index)",
- "bevy_utils 0.6.0 (registry+https://github.com/rust-lang/crates.io-index)",
-]
-
-[[package]]
-name = "bevy_input"
-version = "0.6.0"
-source = "git+https://github.com/ManevilleF/bevy#7de6cd45e6320fb060649377c5e1cf2d66bd1f47"
-dependencies = [
- "bevy_app 0.6.0 (git+https://github.com/ManevilleF/bevy)",
- "bevy_ecs 0.6.0",
- "bevy_math 0.6.0 (git+https://github.com/ManevilleF/bevy)",
- "bevy_utils 0.6.0 (git+https://github.com/ManevilleF/bevy)",
+ "bevy_app",
+ "bevy_ecs",
+ "bevy_math",
+ "bevy_utils",
 ]
 
 [[package]]
 name = "bevy_internal"
 version = "0.6.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "f92af28d95bba80d11840c24fa4ce8ff84ae27af1def2f5cf8a6891acce5d714"
+source = "git+https://github.com/ManevilleF/bevy?branch=feat/bevy_ui_touch_input#14c3eb041f99d4c582682d24a9276bd39c546bc1"
 dependencies = [
- "bevy_app 0.6.0 (registry+https://github.com/rust-lang/crates.io-index)",
- "bevy_asset 0.6.0 (registry+https://github.com/rust-lang/crates.io-index)",
- "bevy_core 0.6.0 (registry+https://github.com/rust-lang/crates.io-index)",
- "bevy_derive 0.6.0 (registry+https://github.com/rust-lang/crates.io-index)",
- "bevy_diagnostic 0.6.0 (registry+https://github.com/rust-lang/crates.io-index)",
- "bevy_ecs 0.6.1",
- "bevy_input 0.6.0 (registry+https://github.com/rust-lang/crates.io-index)",
- "bevy_log 0.6.0 (registry+https://github.com/rust-lang/crates.io-index)",
- "bevy_math 0.6.0 (registry+https://github.com/rust-lang/crates.io-index)",
- "bevy_pbr 0.6.1",
- "bevy_reflect 0.6.0 (registry+https://github.com/rust-lang/crates.io-index)",
- "bevy_render 0.6.1",
- "bevy_scene 0.6.0 (registry+https://github.com/rust-lang/crates.io-index)",
- "bevy_tasks 0.6.0 (registry+https://github.com/rust-lang/crates.io-index)",
- "bevy_transform 0.6.0 (registry+https://github.com/rust-lang/crates.io-index)",
- "bevy_utils 0.6.0 (registry+https://github.com/rust-lang/crates.io-index)",
- "bevy_window 0.6.0 (registry+https://github.com/rust-lang/crates.io-index)",
- "ndk-glue 0.5.1",
-]
-
-[[package]]
-name = "bevy_internal"
-version = "0.6.0"
-source = "git+https://github.com/ManevilleF/bevy#7de6cd45e6320fb060649377c5e1cf2d66bd1f47"
-dependencies = [
- "bevy_app 0.6.0 (git+https://github.com/ManevilleF/bevy)",
- "bevy_asset 0.6.0 (git+https://github.com/ManevilleF/bevy)",
+ "bevy_app",
+ "bevy_asset",
  "bevy_audio",
- "bevy_core 0.6.0 (git+https://github.com/ManevilleF/bevy)",
- "bevy_core_pipeline 0.6.0 (git+https://github.com/ManevilleF/bevy)",
- "bevy_derive 0.6.0 (git+https://github.com/ManevilleF/bevy)",
- "bevy_diagnostic 0.6.0 (git+https://github.com/ManevilleF/bevy)",
- "bevy_ecs 0.6.0",
+ "bevy_core",
+ "bevy_core_pipeline",
+ "bevy_derive",
+ "bevy_diagnostic",
+ "bevy_ecs",
  "bevy_gilrs",
  "bevy_gltf",
- "bevy_input 0.6.0 (git+https://github.com/ManevilleF/bevy)",
- "bevy_log 0.6.0 (git+https://github.com/ManevilleF/bevy)",
- "bevy_math 0.6.0 (git+https://github.com/ManevilleF/bevy)",
- "bevy_pbr 0.6.0",
- "bevy_reflect 0.6.0 (git+https://github.com/ManevilleF/bevy)",
- "bevy_render 0.6.0",
- "bevy_scene 0.6.0 (git+https://github.com/ManevilleF/bevy)",
+ "bevy_input",
+ "bevy_log",
+ "bevy_math",
+ "bevy_pbr",
+ "bevy_reflect",
+ "bevy_render",
+ "bevy_scene",
  "bevy_sprite",
- "bevy_tasks 0.6.0 (git+https://github.com/ManevilleF/bevy)",
+ "bevy_tasks",
  "bevy_text",
- "bevy_transform 0.6.0 (git+https://github.com/ManevilleF/bevy)",
+ "bevy_transform",
  "bevy_ui",
- "bevy_utils 0.6.0 (git+https://github.com/ManevilleF/bevy)",
- "bevy_window 0.6.0 (git+https://github.com/ManevilleF/bevy)",
+ "bevy_utils",
+ "bevy_window",
  "bevy_winit",
  "ndk-glue 0.5.1",
 ]
 
 [[package]]
-name = "bevy_kira_audio"
-version = "0.8.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "4ef3977fecb8f4d82b77f8c0bb415f59917c86923d5f5be688ef7099c8e9b98e"
-dependencies = [
- "anyhow",
- "bevy 0.6.1",
- "kira",
- "parking_lot",
-]
-
-[[package]]
 name = "bevy_log"
 version = "0.6.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "9bf0083e72bf76cbfa6607311ac6baef2f4f7c9306c35942cece8c0589cd3e5e"
+source = "git+https://github.com/ManevilleF/bevy?branch=feat/bevy_ui_touch_input#14c3eb041f99d4c582682d24a9276bd39c546bc1"
 dependencies = [
  "android_log-sys",
- "bevy_app 0.6.0 (registry+https://github.com/rust-lang/crates.io-index)",
- "bevy_utils 0.6.0 (registry+https://github.com/rust-lang/crates.io-index)",
- "console_error_panic_hook",
- "tracing-log",
- "tracing-subscriber",
- "tracing-wasm",
-]
-
-[[package]]
-name = "bevy_log"
-version = "0.6.0"
-source = "git+https://github.com/ManevilleF/bevy#7de6cd45e6320fb060649377c5e1cf2d66bd1f47"
-dependencies = [
- "android_log-sys",
- "bevy_app 0.6.0 (git+https://github.com/ManevilleF/bevy)",
- "bevy_utils 0.6.0 (git+https://github.com/ManevilleF/bevy)",
+ "bevy_app",
+ "bevy_utils",
  "console_error_panic_hook",
  "tracing-log",
  "tracing-subscriber",
@@ -676,18 +439,7 @@ dependencies = [
 [[package]]
 name = "bevy_macro_utils"
 version = "0.6.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "57cf90b3b67606d0818cdac6c9134eb66fa174959977a4abba893364a571a7cd"
-dependencies = [
- "cargo-manifest",
- "quote",
- "syn",
-]
-
-[[package]]
-name = "bevy_macro_utils"
-version = "0.6.0"
-source = "git+https://github.com/ManevilleF/bevy#7de6cd45e6320fb060649377c5e1cf2d66bd1f47"
+source = "git+https://github.com/ManevilleF/bevy?branch=feat/bevy_ui_touch_input#14c3eb041f99d4c582682d24a9276bd39c546bc1"
 dependencies = [
  "cargo-manifest",
  "quote",
@@ -697,59 +449,28 @@ dependencies = [
 [[package]]
 name = "bevy_math"
 version = "0.6.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "6b0f9ebf2ef80a8fff3e5dca817594071004048cd089e72b9a1bf4e494b66112"
+source = "git+https://github.com/ManevilleF/bevy?branch=feat/bevy_ui_touch_input#14c3eb041f99d4c582682d24a9276bd39c546bc1"
 dependencies = [
- "bevy_reflect 0.6.0 (registry+https://github.com/rust-lang/crates.io-index)",
- "glam",
-]
-
-[[package]]
-name = "bevy_math"
-version = "0.6.0"
-source = "git+https://github.com/ManevilleF/bevy#7de6cd45e6320fb060649377c5e1cf2d66bd1f47"
-dependencies = [
- "bevy_reflect 0.6.0 (git+https://github.com/ManevilleF/bevy)",
+ "bevy_reflect",
  "glam",
 ]
 
 [[package]]
 name = "bevy_pbr"
 version = "0.6.0"
-source = "git+https://github.com/ManevilleF/bevy#7de6cd45e6320fb060649377c5e1cf2d66bd1f47"
+source = "git+https://github.com/ManevilleF/bevy?branch=feat/bevy_ui_touch_input#14c3eb041f99d4c582682d24a9276bd39c546bc1"
 dependencies = [
- "bevy_app 0.6.0 (git+https://github.com/ManevilleF/bevy)",
- "bevy_asset 0.6.0 (git+https://github.com/ManevilleF/bevy)",
- "bevy_core 0.6.0 (git+https://github.com/ManevilleF/bevy)",
- "bevy_core_pipeline 0.6.0 (git+https://github.com/ManevilleF/bevy)",
- "bevy_ecs 0.6.0",
- "bevy_math 0.6.0 (git+https://github.com/ManevilleF/bevy)",
- "bevy_reflect 0.6.0 (git+https://github.com/ManevilleF/bevy)",
- "bevy_render 0.6.0",
- "bevy_transform 0.6.0 (git+https://github.com/ManevilleF/bevy)",
- "bevy_utils 0.6.0 (git+https://github.com/ManevilleF/bevy)",
- "bevy_window 0.6.0 (git+https://github.com/ManevilleF/bevy)",
- "bitflags",
- "bytemuck",
-]
-
-[[package]]
-name = "bevy_pbr"
-version = "0.6.1"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "41724d89746d54f7f8c8e522f9d0b1232a8a289e0d270482175d23774dc2362a"
-dependencies = [
- "bevy_app 0.6.0 (registry+https://github.com/rust-lang/crates.io-index)",
- "bevy_asset 0.6.0 (registry+https://github.com/rust-lang/crates.io-index)",
- "bevy_core 0.6.0 (registry+https://github.com/rust-lang/crates.io-index)",
- "bevy_core_pipeline 0.6.0 (registry+https://github.com/rust-lang/crates.io-index)",
- "bevy_ecs 0.6.1",
- "bevy_math 0.6.0 (registry+https://github.com/rust-lang/crates.io-index)",
- "bevy_reflect 0.6.0 (registry+https://github.com/rust-lang/crates.io-index)",
- "bevy_render 0.6.1",
- "bevy_transform 0.6.0 (registry+https://github.com/rust-lang/crates.io-index)",
- "bevy_utils 0.6.0 (registry+https://github.com/rust-lang/crates.io-index)",
- "bevy_window 0.6.0 (registry+https://github.com/rust-lang/crates.io-index)",
+ "bevy_app",
+ "bevy_asset",
+ "bevy_core",
+ "bevy_core_pipeline",
+ "bevy_ecs",
+ "bevy_math",
+ "bevy_reflect",
+ "bevy_render",
+ "bevy_transform",
+ "bevy_utils",
+ "bevy_window",
  "bitflags",
  "bytemuck",
 ]
@@ -757,27 +478,10 @@ dependencies = [
 [[package]]
 name = "bevy_reflect"
 version = "0.6.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "d84ce8cbd484a39d67171831eaf72c20d2684de71f1e9d79333c8dd6d6f3ebca"
+source = "git+https://github.com/ManevilleF/bevy?branch=feat/bevy_ui_touch_input#14c3eb041f99d4c582682d24a9276bd39c546bc1"
 dependencies = [
- "bevy_reflect_derive 0.6.0 (registry+https://github.com/rust-lang/crates.io-index)",
- "bevy_utils 0.6.0 (registry+https://github.com/rust-lang/crates.io-index)",
- "downcast-rs",
- "erased-serde",
- "glam",
- "parking_lot",
- "serde",
- "smallvec",
- "thiserror",
-]
-
-[[package]]
-name = "bevy_reflect"
-version = "0.6.0"
-source = "git+https://github.com/ManevilleF/bevy#7de6cd45e6320fb060649377c5e1cf2d66bd1f47"
-dependencies = [
- "bevy_reflect_derive 0.6.0 (git+https://github.com/ManevilleF/bevy)",
- "bevy_utils 0.6.0 (git+https://github.com/ManevilleF/bevy)",
+ "bevy_reflect_derive",
+ "bevy_utils",
  "downcast-rs",
  "erased-serde",
  "glam",
@@ -790,22 +494,9 @@ dependencies = [
 [[package]]
 name = "bevy_reflect_derive"
 version = "0.6.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "7af3100febf44583a7c052d1469fbdb411f56aa85729333a0ac106a016bd379c"
+source = "git+https://github.com/ManevilleF/bevy?branch=feat/bevy_ui_touch_input#14c3eb041f99d4c582682d24a9276bd39c546bc1"
 dependencies = [
- "bevy_macro_utils 0.6.0 (registry+https://github.com/rust-lang/crates.io-index)",
- "proc-macro2",
- "quote",
- "syn",
- "uuid",
-]
-
-[[package]]
-name = "bevy_reflect_derive"
-version = "0.6.0"
-source = "git+https://github.com/ManevilleF/bevy#7de6cd45e6320fb060649377c5e1cf2d66bd1f47"
-dependencies = [
- "bevy_macro_utils 0.6.0 (git+https://github.com/ManevilleF/bevy)",
+ "bevy_macro_utils",
  "proc-macro2",
  "quote",
  "syn",
@@ -815,56 +506,20 @@ dependencies = [
 [[package]]
 name = "bevy_render"
 version = "0.6.0"
-source = "git+https://github.com/ManevilleF/bevy#7de6cd45e6320fb060649377c5e1cf2d66bd1f47"
+source = "git+https://github.com/ManevilleF/bevy?branch=feat/bevy_ui_touch_input#14c3eb041f99d4c582682d24a9276bd39c546bc1"
 dependencies = [
  "anyhow",
- "bevy_app 0.6.0 (git+https://github.com/ManevilleF/bevy)",
- "bevy_asset 0.6.0 (git+https://github.com/ManevilleF/bevy)",
- "bevy_core 0.6.0 (git+https://github.com/ManevilleF/bevy)",
- "bevy_crevice 0.6.0",
- "bevy_derive 0.6.0 (git+https://github.com/ManevilleF/bevy)",
- "bevy_ecs 0.6.0",
- "bevy_math 0.6.0 (git+https://github.com/ManevilleF/bevy)",
- "bevy_reflect 0.6.0 (git+https://github.com/ManevilleF/bevy)",
- "bevy_transform 0.6.0 (git+https://github.com/ManevilleF/bevy)",
- "bevy_utils 0.6.0 (git+https://github.com/ManevilleF/bevy)",
- "bevy_window 0.6.0 (git+https://github.com/ManevilleF/bevy)",
- "bitflags",
- "codespan-reporting",
- "copyless",
- "downcast-rs",
- "futures-lite",
- "hex",
- "hexasphere",
- "image",
- "naga",
- "once_cell",
- "parking_lot",
- "regex",
- "serde",
- "smallvec",
- "thiserror",
- "wgpu",
-]
-
-[[package]]
-name = "bevy_render"
-version = "0.6.1"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "ac0d5409e5e3d48f3192f78e37bedea29aa0c674083e51aaa7e945496913d2c2"
-dependencies = [
- "anyhow",
- "bevy_app 0.6.0 (registry+https://github.com/rust-lang/crates.io-index)",
- "bevy_asset 0.6.0 (registry+https://github.com/rust-lang/crates.io-index)",
- "bevy_core 0.6.0 (registry+https://github.com/rust-lang/crates.io-index)",
- "bevy_crevice 0.6.1",
- "bevy_derive 0.6.0 (registry+https://github.com/rust-lang/crates.io-index)",
- "bevy_ecs 0.6.1",
- "bevy_math 0.6.0 (registry+https://github.com/rust-lang/crates.io-index)",
- "bevy_reflect 0.6.0 (registry+https://github.com/rust-lang/crates.io-index)",
- "bevy_transform 0.6.0 (registry+https://github.com/rust-lang/crates.io-index)",
- "bevy_utils 0.6.0 (registry+https://github.com/rust-lang/crates.io-index)",
- "bevy_window 0.6.0 (registry+https://github.com/rust-lang/crates.io-index)",
+ "bevy_app",
+ "bevy_asset",
+ "bevy_core",
+ "bevy_crevice",
+ "bevy_derive",
+ "bevy_ecs",
+ "bevy_math",
+ "bevy_reflect",
+ "bevy_transform",
+ "bevy_utils",
+ "bevy_window",
  "bitflags",
  "codespan-reporting",
  "copyless",
@@ -886,34 +541,15 @@ dependencies = [
 [[package]]
 name = "bevy_scene"
 version = "0.6.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "21eb2b01e4d1b074c75ea59a92409739cac24b56b1c723491ef80936d50e95df"
+source = "git+https://github.com/ManevilleF/bevy?branch=feat/bevy_ui_touch_input#14c3eb041f99d4c582682d24a9276bd39c546bc1"
 dependencies = [
  "anyhow",
- "bevy_app 0.6.0 (registry+https://github.com/rust-lang/crates.io-index)",
- "bevy_asset 0.6.0 (registry+https://github.com/rust-lang/crates.io-index)",
- "bevy_ecs 0.6.1",
- "bevy_reflect 0.6.0 (registry+https://github.com/rust-lang/crates.io-index)",
- "bevy_transform 0.6.0 (registry+https://github.com/rust-lang/crates.io-index)",
- "bevy_utils 0.6.0 (registry+https://github.com/rust-lang/crates.io-index)",
- "ron",
- "serde",
- "thiserror",
- "uuid",
-]
-
-[[package]]
-name = "bevy_scene"
-version = "0.6.0"
-source = "git+https://github.com/ManevilleF/bevy#7de6cd45e6320fb060649377c5e1cf2d66bd1f47"
-dependencies = [
- "anyhow",
- "bevy_app 0.6.0 (git+https://github.com/ManevilleF/bevy)",
- "bevy_asset 0.6.0 (git+https://github.com/ManevilleF/bevy)",
- "bevy_ecs 0.6.0",
- "bevy_reflect 0.6.0 (git+https://github.com/ManevilleF/bevy)",
- "bevy_transform 0.6.0 (git+https://github.com/ManevilleF/bevy)",
- "bevy_utils 0.6.0 (git+https://github.com/ManevilleF/bevy)",
+ "bevy_app",
+ "bevy_asset",
+ "bevy_ecs",
+ "bevy_reflect",
+ "bevy_transform",
+ "bevy_utils",
  "ron",
  "serde",
  "thiserror",
@@ -923,19 +559,19 @@ dependencies = [
 [[package]]
 name = "bevy_sprite"
 version = "0.6.0"
-source = "git+https://github.com/ManevilleF/bevy#7de6cd45e6320fb060649377c5e1cf2d66bd1f47"
+source = "git+https://github.com/ManevilleF/bevy?branch=feat/bevy_ui_touch_input#14c3eb041f99d4c582682d24a9276bd39c546bc1"
 dependencies = [
- "bevy_app 0.6.0 (git+https://github.com/ManevilleF/bevy)",
- "bevy_asset 0.6.0 (git+https://github.com/ManevilleF/bevy)",
- "bevy_core 0.6.0 (git+https://github.com/ManevilleF/bevy)",
- "bevy_core_pipeline 0.6.0 (git+https://github.com/ManevilleF/bevy)",
- "bevy_ecs 0.6.0",
- "bevy_log 0.6.0 (git+https://github.com/ManevilleF/bevy)",
- "bevy_math 0.6.0 (git+https://github.com/ManevilleF/bevy)",
- "bevy_reflect 0.6.0 (git+https://github.com/ManevilleF/bevy)",
- "bevy_render 0.6.0",
- "bevy_transform 0.6.0 (git+https://github.com/ManevilleF/bevy)",
- "bevy_utils 0.6.0 (git+https://github.com/ManevilleF/bevy)",
+ "bevy_app",
+ "bevy_asset",
+ "bevy_core",
+ "bevy_core_pipeline",
+ "bevy_ecs",
+ "bevy_log",
+ "bevy_math",
+ "bevy_reflect",
+ "bevy_render",
+ "bevy_transform",
+ "bevy_utils",
  "bitflags",
  "bytemuck",
  "copyless",
@@ -948,21 +584,7 @@ dependencies = [
 [[package]]
 name = "bevy_tasks"
 version = "0.6.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "9dc4bce7f4cddbb489636092f52478b103dc26ee8526c585289bbdd9c0d0a99f"
-dependencies = [
- "async-channel",
- "async-executor",
- "event-listener",
- "futures-lite",
- "num_cpus",
- "wasm-bindgen-futures",
-]
-
-[[package]]
-name = "bevy_tasks"
-version = "0.6.0"
-source = "git+https://github.com/ManevilleF/bevy#7de6cd45e6320fb060649377c5e1cf2d66bd1f47"
+source = "git+https://github.com/ManevilleF/bevy?branch=feat/bevy_ui_touch_input#14c3eb041f99d4c582682d24a9276bd39c546bc1"
 dependencies = [
  "async-channel",
  "async-executor",
@@ -975,21 +597,21 @@ dependencies = [
 [[package]]
 name = "bevy_text"
 version = "0.6.0"
-source = "git+https://github.com/ManevilleF/bevy#7de6cd45e6320fb060649377c5e1cf2d66bd1f47"
+source = "git+https://github.com/ManevilleF/bevy?branch=feat/bevy_ui_touch_input#14c3eb041f99d4c582682d24a9276bd39c546bc1"
 dependencies = [
  "ab_glyph",
  "anyhow",
- "bevy_app 0.6.0 (git+https://github.com/ManevilleF/bevy)",
- "bevy_asset 0.6.0 (git+https://github.com/ManevilleF/bevy)",
- "bevy_core 0.6.0 (git+https://github.com/ManevilleF/bevy)",
- "bevy_ecs 0.6.0",
- "bevy_math 0.6.0 (git+https://github.com/ManevilleF/bevy)",
- "bevy_reflect 0.6.0 (git+https://github.com/ManevilleF/bevy)",
- "bevy_render 0.6.0",
+ "bevy_app",
+ "bevy_asset",
+ "bevy_core",
+ "bevy_ecs",
+ "bevy_math",
+ "bevy_reflect",
+ "bevy_render",
  "bevy_sprite",
- "bevy_transform 0.6.0 (git+https://github.com/ManevilleF/bevy)",
- "bevy_utils 0.6.0 (git+https://github.com/ManevilleF/bevy)",
- "bevy_window 0.6.0 (git+https://github.com/ManevilleF/bevy)",
+ "bevy_transform",
+ "bevy_utils",
+ "bevy_window",
  "glyph_brush_layout",
  "serde",
  "thiserror",
@@ -998,51 +620,37 @@ dependencies = [
 [[package]]
 name = "bevy_transform"
 version = "0.6.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "9974c494f9cc721df46d2ba27c6a8df2a955ed8360a23adabd2bd66d1f73fa8f"
+source = "git+https://github.com/ManevilleF/bevy?branch=feat/bevy_ui_touch_input#14c3eb041f99d4c582682d24a9276bd39c546bc1"
 dependencies = [
- "bevy_app 0.6.0 (registry+https://github.com/rust-lang/crates.io-index)",
- "bevy_ecs 0.6.1",
- "bevy_math 0.6.0 (registry+https://github.com/rust-lang/crates.io-index)",
- "bevy_reflect 0.6.0 (registry+https://github.com/rust-lang/crates.io-index)",
- "bevy_utils 0.6.0 (registry+https://github.com/rust-lang/crates.io-index)",
- "smallvec",
-]
-
-[[package]]
-name = "bevy_transform"
-version = "0.6.0"
-source = "git+https://github.com/ManevilleF/bevy#7de6cd45e6320fb060649377c5e1cf2d66bd1f47"
-dependencies = [
- "bevy_app 0.6.0 (git+https://github.com/ManevilleF/bevy)",
- "bevy_ecs 0.6.0",
- "bevy_math 0.6.0 (git+https://github.com/ManevilleF/bevy)",
- "bevy_reflect 0.6.0 (git+https://github.com/ManevilleF/bevy)",
- "bevy_utils 0.6.0 (git+https://github.com/ManevilleF/bevy)",
+ "bevy_app",
+ "bevy_ecs",
+ "bevy_math",
+ "bevy_reflect",
+ "bevy_utils",
  "smallvec",
 ]
 
 [[package]]
 name = "bevy_ui"
 version = "0.6.0"
-source = "git+https://github.com/ManevilleF/bevy#7de6cd45e6320fb060649377c5e1cf2d66bd1f47"
+source = "git+https://github.com/ManevilleF/bevy?branch=feat/bevy_ui_touch_input#14c3eb041f99d4c582682d24a9276bd39c546bc1"
 dependencies = [
- "bevy_app 0.6.0 (git+https://github.com/ManevilleF/bevy)",
- "bevy_asset 0.6.0 (git+https://github.com/ManevilleF/bevy)",
- "bevy_core 0.6.0 (git+https://github.com/ManevilleF/bevy)",
- "bevy_core_pipeline 0.6.0 (git+https://github.com/ManevilleF/bevy)",
- "bevy_derive 0.6.0 (git+https://github.com/ManevilleF/bevy)",
- "bevy_ecs 0.6.0",
- "bevy_input 0.6.0 (git+https://github.com/ManevilleF/bevy)",
- "bevy_log 0.6.0 (git+https://github.com/ManevilleF/bevy)",
- "bevy_math 0.6.0 (git+https://github.com/ManevilleF/bevy)",
- "bevy_reflect 0.6.0 (git+https://github.com/ManevilleF/bevy)",
- "bevy_render 0.6.0",
+ "bevy_app",
+ "bevy_asset",
+ "bevy_core",
+ "bevy_core_pipeline",
+ "bevy_derive",
+ "bevy_ecs",
+ "bevy_input",
+ "bevy_log",
+ "bevy_math",
+ "bevy_reflect",
+ "bevy_render",
  "bevy_sprite",
  "bevy_text",
- "bevy_transform 0.6.0 (git+https://github.com/ManevilleF/bevy)",
- "bevy_utils 0.6.0 (git+https://github.com/ManevilleF/bevy)",
- "bevy_window 0.6.0 (git+https://github.com/ManevilleF/bevy)",
+ "bevy_transform",
+ "bevy_utils",
+ "bevy_window",
  "bytemuck",
  "serde",
  "smallvec",
@@ -1052,25 +660,12 @@ dependencies = [
 [[package]]
 name = "bevy_utils"
 version = "0.6.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "252f6674aa3ba68bacfec506b91570a3cc206ad09b7ef4b23661959ef0246396"
+source = "git+https://github.com/ManevilleF/bevy?branch=feat/bevy_ui_touch_input#14c3eb041f99d4c582682d24a9276bd39c546bc1"
 dependencies = [
  "ahash",
- "bevy_derive 0.6.0 (registry+https://github.com/rust-lang/crates.io-index)",
+ "bevy_derive",
  "getrandom",
- "instant",
- "tracing",
- "uuid",
-]
-
-[[package]]
-name = "bevy_utils"
-version = "0.6.0"
-source = "git+https://github.com/ManevilleF/bevy#7de6cd45e6320fb060649377c5e1cf2d66bd1f47"
-dependencies = [
- "ahash",
- "bevy_derive 0.6.0 (git+https://github.com/ManevilleF/bevy)",
- "getrandom",
+ "hashbrown",
  "instant",
  "tracing",
  "uuid",
@@ -1079,24 +674,12 @@ dependencies = [
 [[package]]
 name = "bevy_window"
 version = "0.6.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "9f4b52b766baf565e96f24f61dbc51bc85151f23202fed2b3650769f2edd0b21"
+source = "git+https://github.com/ManevilleF/bevy?branch=feat/bevy_ui_touch_input#14c3eb041f99d4c582682d24a9276bd39c546bc1"
 dependencies = [
- "bevy_app 0.6.0 (registry+https://github.com/rust-lang/crates.io-index)",
- "bevy_math 0.6.0 (registry+https://github.com/rust-lang/crates.io-index)",
- "bevy_utils 0.6.0 (registry+https://github.com/rust-lang/crates.io-index)",
- "raw-window-handle",
- "web-sys",
-]
-
-[[package]]
-name = "bevy_window"
-version = "0.6.0"
-source = "git+https://github.com/ManevilleF/bevy#7de6cd45e6320fb060649377c5e1cf2d66bd1f47"
-dependencies = [
- "bevy_app 0.6.0 (git+https://github.com/ManevilleF/bevy)",
- "bevy_math 0.6.0 (git+https://github.com/ManevilleF/bevy)",
- "bevy_utils 0.6.0 (git+https://github.com/ManevilleF/bevy)",
+ "bevy_app",
+ "bevy_ecs",
+ "bevy_math",
+ "bevy_utils",
  "raw-window-handle",
  "web-sys",
 ]
@@ -1104,15 +687,15 @@ dependencies = [
 [[package]]
 name = "bevy_winit"
 version = "0.6.0"
-source = "git+https://github.com/ManevilleF/bevy#7de6cd45e6320fb060649377c5e1cf2d66bd1f47"
+source = "git+https://github.com/ManevilleF/bevy?branch=feat/bevy_ui_touch_input#14c3eb041f99d4c582682d24a9276bd39c546bc1"
 dependencies = [
  "approx",
- "bevy_app 0.6.0 (git+https://github.com/ManevilleF/bevy)",
- "bevy_ecs 0.6.0",
- "bevy_input 0.6.0 (git+https://github.com/ManevilleF/bevy)",
- "bevy_math 0.6.0 (git+https://github.com/ManevilleF/bevy)",
- "bevy_utils 0.6.0 (git+https://github.com/ManevilleF/bevy)",
- "bevy_window 0.6.0 (git+https://github.com/ManevilleF/bevy)",
+ "bevy_app",
+ "bevy_ecs",
+ "bevy_input",
+ "bevy_math",
+ "bevy_utils",
+ "bevy_window",
  "raw-window-handle",
  "wasm-bindgen",
  "web-sys",
@@ -1812,9 +1395,9 @@ dependencies = [
 
 [[package]]
 name = "gltf"
-version = "0.16.0"
+version = "1.0.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "8ff38b75359a0096dd0a8599b6e4f37a6ee41d5df300cc7669e62aafa697f7a2"
+checksum = "00e0a0eace786193fc83644907097285396360e9e82e30f81a21e9b1ba836a3e"
 dependencies = [
  "byteorder",
  "gltf-json",
@@ -1823,9 +1406,9 @@ dependencies = [
 
 [[package]]
 name = "gltf-derive"
-version = "0.16.0"
+version = "1.0.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "1f2a9333e0f9c7bca94dfc20bcf44fa12a61eeec662d6e007563ff748aa59c70"
+checksum = "bdd53d6e284bb2bf02a6926e4cc4984978c1990914d6cd9deae4e31cf37cd113"
 dependencies = [
  "inflections",
  "proc-macro2",
@@ -1835,9 +1418,9 @@ dependencies = [
 
 [[package]]
 name = "gltf-json"
-version = "0.16.0"
+version = "1.0.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "a1414d3a98cbaabdb2f134328b1f6036d14b282febc1df51952a435d2ca17fb6"
+checksum = "9949836a9ec5e7f83f76fb9bbcbc77f254a577ebbdb0820867bc11979ef97cad"
 dependencies = [
  "gltf-derive",
  "serde",
@@ -1912,6 +1495,7 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "ab5ef0d4909ef3724cc8cce6ccc8572c5c817592e9285f5464f8e86f8bd3726e"
 dependencies = [
  "ahash",
+ "serde",
 ]
 
 [[package]]
@@ -1931,9 +1515,9 @@ checksum = "7f24254aa9a54b5c858eaee2f5bccdb46aaf0e486a595ed5fd8f86ba55232a70"
 
 [[package]]
 name = "hexasphere"
-version = "6.1.0"
+version = "7.0.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "2b219bdb56b14905fa5429636bfc4df0043626642d4586d069a82019130846f5"
+checksum = "04ab9d20ba513ff1582a7d885e91839f62cf28bef7c56b1b0428ca787315979b"
 dependencies = [
  "glam",
  "lazy_static",
@@ -2083,25 +1667,6 @@ checksum = "8c2352bd1d0bceb871cb9d40f24360c8133c11d7486b68b5381c1dd1a32015e3"
 dependencies = [
  "libc",
  "libloading",
-]
-
-[[package]]
-name = "kira"
-version = "0.5.3"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "6e7a756bb5de5a0dea42a6f514037db18736b56c9e2313928746025721f9cca0"
-dependencies = [
- "atomic",
- "basedrop",
- "cpal",
- "getrandom",
- "indexmap",
- "instant",
- "lewton",
- "rand",
- "ringbuf",
- "thiserror",
- "uuid",
 ]
 
 [[package]]
@@ -2841,19 +2406,10 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "f1382d1f0a252c4bf97dc20d979a2fdd05b024acd7c2ed0f7595d7817666a157"
 
 [[package]]
-name = "ringbuf"
-version = "0.2.7"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "fd3064490f4a0c5bc127544803fbc2bb5f77ec5170f0208f2d7b605a4f396d44"
-dependencies = [
- "cache-padded",
-]
-
-[[package]]
 name = "rodio"
-version = "0.14.0"
+version = "0.15.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "4d98f5e557b61525057e2bc142c8cd7f0e70d75dc32852309bec440e6e046bf9"
+checksum = "ec0939e9f626e6c6f1989adb6226a039c855ca483053f0ee7c98b90e41cf731e"
 dependencies = [
  "cpal",
  "lewton",

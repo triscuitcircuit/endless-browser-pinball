@@ -6,9 +6,8 @@ edition = "2021"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-bevy = { git ="https://github.com/ManevilleF/bevy", bevy_audio = false, vorbis = false }
-bevy_kira_audio = "0.8.0"
+bevy = { git ="https://github.com/ManevilleF/bevy", branch = "feat/bevy_ui_touch_input", vorbis = false }
 
 [lib]
 name = "bevy_ios_example"
-crate-type = ["staticlib"]
+crate-type = ["staticlib"] 
