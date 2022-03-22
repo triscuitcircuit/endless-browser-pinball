@@ -71,7 +71,6 @@ fn pause_menu_setup(mut commands: Commands, asset_server: Res<AssetServer>) {
         font_size: 40.0,
         color: TEXT_COLOR,
     };
-
     commands
         .spawn_bundle(NodeBundle {
             style: Style {
@@ -86,22 +85,7 @@ fn pause_menu_setup(mut commands: Commands, asset_server: Res<AssetServer>) {
         .insert(OnPauseMenuScreen)
         .with_children(|parent| {
             // Display the game name
-            parent.spawn_bundle(TextBundle {
-                style: Style {
-                    margin: Rect::all(Val::Px(50.0)),
-                    ..Default::default()
-                },
-                text: Text::with_section(
-                    "Paused",
-                    TextStyle {
-                        font: font.clone(),
-                        font_size: 80.0,
-                        color: TEXT_COLOR,
-                    },
-                    Default::default(),
-                ),
-                ..Default::default()
-            });
+
 
             // Display three buttons for each action available from the main menu:
             // - new game
@@ -123,13 +107,58 @@ fn pause_menu_setup(mut commands: Commands, asset_server: Res<AssetServer>) {
                     });
                     parent.spawn_bundle(TextBundle {
                         text: Text::with_section(
-                            "Back to Game",
+                            "Resume",
                             button_text_style.clone(),
                             Default::default(),
                         ),
                         ..Default::default()
                     });
                 });
+            parent
+                .spawn_bundle(ButtonBundle {
+                    style: button_style.clone(),
+                    color: NORMAL_BUTTON.into(),
+                    ..Default::default()
+                })
+                .insert(PauseButtonAction::Leaderboards)
+                .with_children(|parent| {
+                    let icon = asset_server.load("textures/Game Icons/right.png");
+                    parent.spawn_bundle(ImageBundle {
+                        style: button_icon_style.clone(),
+                        image: UiImage(icon),
+                        ..Default::default()
+                    });
+                    parent.spawn_bundle(TextBundle {
+                        text: Text::with_section(
+                            "Leaderboards",
+                            button_text_style.clone(),
+                            Default::default(),
+                        ),
+                        ..Default::default()
+                    });
+                });
+        });
+
+    commands
+        .spawn_bundle(NodeBundle {
+            style: Style {
+                margin: Rect::all(Val::Auto),
+                flex_direction: FlexDirection::ColumnReverse,
+                align_items: AlignItems::Center,
+                ..Default::default()
+            },
+            color: Color::BLACK.into(),
+            ..Default::default()
+        })
+        .insert(OnPauseMenuScreen)
+        .with_children(|parent| {
+            // Display the game name
+
+
+            // Display three buttons for each action available from the main menu:
+            // - new game
+            // - settings
+            // - quit
             parent
                 .spawn_bundle(ButtonBundle {
                     style: button_style.clone(),
@@ -168,7 +197,7 @@ fn pause_menu_setup(mut commands: Commands, asset_server: Res<AssetServer>) {
                         ..Default::default()
                     });
                     parent.spawn_bundle(TextBundle {
-                        text: Text::with_section("Back to MainMenu", button_text_style, Default::default()),
+                        text: Text::with_section("Exit Game", button_text_style, Default::default()),
                         ..Default::default()
                     });
                 });
@@ -186,14 +215,17 @@ fn menu_action(
 ) {
     for (interaction, pause_action) in interaction_query.iter() {
         if *interaction == Interaction::Clicked {
-            println!("clicked");
             match pause_action {
                 PauseButtonAction::BackToMainMenu =>{
-                    game_state.set(GameState::Game).unwrap();
+                    game_state.set(GameState::Menu).unwrap();
+                    menu_state.set(PauseState::Disabled).unwrap();
                 }
                 PauseButtonAction::BackToGame=>{
-                    menu_state.set(PauseState::Disabled).unwrap();
                     game_state.set(GameState::Game).unwrap();
+                    menu_state.set(PauseState::Disabled).unwrap();
+                }
+                PauseButtonAction::Leaderboards=>{
+
                 }
                 PauseButtonAction::SettingsSound =>{
                     menu_state.set(PauseState::SettingsSound).unwrap();

@@ -1,8 +1,10 @@
 use bevy::{input::touch::TouchPhase, prelude::*, window::WindowMode, app::AppExit};
+use bevy::audio::AudioSink;
 
 use crate::states::*;
+use crate::utils::sound::{LoopAudioInstanceHandle, set_vol, stop_music};
 
-
+use super::{Volume};
 // This plugin manages the menu, with 5 different screens:
 // - a main menu with "New Game", "Settings", "Quit"
 // - a settings menu with two submenus and a back button
@@ -19,9 +21,14 @@ impl Plugin for MenuPlugin {
             .add_system_set(SystemSet::on_enter(GameState::Menu).with_system(menu_setup))
             // Systems to handle the main menu screen
             .add_system_set(SystemSet::on_enter(MenuState::Main).with_system(main_menu_setup))
+                .add_system_set(
+                    SystemSet::on_update(MenuState::Main)
+                        .with_system(set_vol)
+                )
             .add_system_set(
                 SystemSet::on_exit(MenuState::Main)
-                    .with_system(despawn_screen::<OnMainMenuScreen>),
+                    .with_system(despawn_screen::<OnMainMenuScreen>)
+                    .with_system(stop_music)
             )
             // Systems to handle the settings menu screen
             .add_system_set(
@@ -89,7 +96,14 @@ fn setting_button<T: Component + PartialEq + Copy>(
     }
 }
 
-fn main_menu_setup(mut commands: Commands, asset_server: Res<AssetServer>) {
+fn main_menu_setup(mut commands: Commands,
+                   asset_server: Res<AssetServer>,
+                   audio: Res<Audio>,
+                   audio_sinks: Res<Assets<AudioSink>>,
+) {
+        let asset_handle = asset_server.load("music/CasualArcade.ogg");
+        let instance_handle = audio_sinks.get_handle(audio.play_in_loop(asset_handle));
+        commands.insert_resource(LoopAudioInstanceHandle(instance_handle));
         let font = asset_server.load("fonts/FiraSans-Bold.ttf");
         // Common style for all buttons on the screen
         let button_style = Style {
@@ -196,25 +210,6 @@ fn main_menu_setup(mut commands: Commands, asset_server: Res<AssetServer>) {
                                 button_text_style.clone(),
                                 Default::default(),
                             ),
-                            ..Default::default()
-                        });
-                    });
-                parent
-                    .spawn_bundle(ButtonBundle {
-                        style: button_style,
-                        color: NORMAL_BUTTON.into(),
-                        ..Default::default()
-                    })
-                    .insert(MenuButtonAction::Quit)
-                    .with_children(|parent| {
-                        let icon = asset_server.load("textures/Game Icons/exitRight.png");
-                        parent.spawn_bundle(ImageBundle {
-                            style: button_icon_style,
-                            image: UiImage(icon),
-                            ..Default::default()
-                        });
-                        parent.spawn_bundle(TextBundle {
-                            text: Text::with_section("Quit", button_text_style, Default::default()),
                             ..Default::default()
                         });
                     });

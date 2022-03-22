@@ -118,6 +118,7 @@ pub enum MenuButtonAction {
 pub enum PauseButtonAction {
     BackToGame,
     SettingsSound,
+    Leaderboards,
     BackToMainMenu,
 }
 
