@@ -44,7 +44,7 @@ fn pausemenu_setup(mut menu_state: ResMut<State<PauseState>>){
 }
 
 fn pause_menu_setup(mut commands: Commands, asset_server: Res<AssetServer>) {
-    let font = asset_server.load("fonts/FiraSans-Bold.ttf");
+    let font = asset_server.load("fonts/PressStart2P-Regular.ttf");
     // Common style for all buttons on the screen
     let button_style = Style {
         size: Size::new(Val::Px(250.0), Val::Px(65.0)),
@@ -68,7 +68,7 @@ fn pause_menu_setup(mut commands: Commands, asset_server: Res<AssetServer>) {
     };
     let button_text_style = TextStyle {
         font: font.clone(),
-        font_size: 40.0,
+        font_size: 25.0,
         color: TEXT_COLOR,
     };
     commands

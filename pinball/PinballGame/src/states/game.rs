@@ -63,8 +63,8 @@ fn game_setup(
         ..Default::default()
     };
     let button_text_style = TextStyle {
-        font: asset_server.load("fonts/FiraSans-Bold.ttf"),
-        font_size: 40.0,
+        font: asset_server.load("fonts/PressStart2P-Regular.ttf"),
+        font_size: 25.0,
         color: TEXT_COLOR,
     };
     commands
@@ -106,7 +106,7 @@ fn game_setup(
     // let music = asset_server.load("music/Disco.ogg");
     // audio.play(music);
 
-    // let font = asset_server.load("fonts/FiraSans-Bold.ttf");
+    // let font = asset_server.load("fonts/PressStart2P-Regular.ttf");
     // Spawn a 5 seconds timer to trigger going back to the menu
     commands.insert_resource(GameTimer(Timer::from_seconds(5.0, false)));
 }

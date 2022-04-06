@@ -104,7 +104,7 @@ fn main_menu_setup(mut commands: Commands,
         let asset_handle = asset_server.load("music/CasualArcade.ogg");
         let instance_handle = audio_sinks.get_handle(audio.play_in_loop(asset_handle));
         commands.insert_resource(LoopAudioInstanceHandle(instance_handle));
-        let font = asset_server.load("fonts/FiraSans-Bold.ttf");
+        let font = asset_server.load("fonts/PressStart2P-Regular.ttf");
         // Common style for all buttons on the screen
         let button_style = Style {
             size: Size::new(Val::Px(250.0), Val::Px(65.0)),
@@ -128,7 +128,7 @@ fn main_menu_setup(mut commands: Commands,
         };
         let button_text_style = TextStyle {
             font: font.clone(),
-            font_size: 40.0,
+            font_size: 25.0,
             color: TEXT_COLOR,
         };
 
@@ -155,7 +155,7 @@ fn main_menu_setup(mut commands: Commands,
                         "Endless Pinball",
                         TextStyle {
                             font: font.clone(),
-                            font_size: 80.0,
+                            font_size: 30.0,
                             color: TEXT_COLOR,
                         },
                         Default::default(),
@@ -225,8 +225,8 @@ fn settings_menu_setup(mut commands: Commands, asset_server: Res<AssetServer>) {
         ..Default::default()
     };
     let button_text_style = TextStyle {
-        font: asset_server.load("fonts/FiraSans-Bold.ttf"),
-        font_size: 40.0,
+        font: asset_server.load("fonts/PressStart2P-Regular.ttf"),
+        font_size: 25.0,
         color: TEXT_COLOR,
     };
 
@@ -308,8 +308,8 @@ fn display_settings_menu_setup(
         ..Default::default()
     };
     let button_text_style = TextStyle {
-        font: asset_server.load("fonts/FiraSans-Bold.ttf"),
-        font_size: 40.0,
+        font: asset_server.load("fonts/PressStart2P-Regular.ttf"),
+        font_size: 25.0,
         color: TEXT_COLOR,
     };
 
@@ -406,8 +406,8 @@ fn sound_settings_menu_setup(
         ..Default::default()
     };
     let button_text_style = TextStyle {
-        font: asset_server.load("fonts/FiraSans-Bold.ttf"),
-        font_size: 40.0,
+        font: asset_server.load("fonts/PressStart2P-Regular.ttf"),
+        font_size: 25.0,
         color: TEXT_COLOR,
     };
 
