@@ -192,13 +192,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "bevy-ios-example"
-version = "0.1.0"
-dependencies = [
- "bevy",
-]
-
-[[package]]
 name = "bevy_app"
 version = "0.6.0"
 source = "git+https://github.com/ManevilleF/bevy?branch=feat/bevy_ui_touch_input#14c3eb041f99d4c582682d24a9276bd39c546bc1"
@@ -1189,6 +1182,13 @@ name = "downcast-rs"
 version = "1.2.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "9ea835d29036a4087793836fa931b08837ad5e957da9e23886b29586fb9b6650"
+
+[[package]]
+name = "endless_pinball"
+version = "0.1.0"
+dependencies = [
+ "bevy",
+]
 
 [[package]]
 name = "env_logger"

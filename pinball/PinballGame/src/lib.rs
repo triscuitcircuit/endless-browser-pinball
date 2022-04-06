@@ -1,11 +1,9 @@
-mod states;
-use bevy::window::WindowMode;
-use states::*;
-use bevy::prelude::*;
-use bevy::input::touch::TouchPhase;
-
-#[bevy_main]
-fn main() {
+pub mod states;
+pub use bevy::window::WindowMode;
+pub use states::*;
+pub use bevy::prelude::*;
+pub use bevy::input::touch::TouchPhase;
+pub fn app(){
     App::new()
         .insert_resource(WindowDescriptor {
             resizable: false,

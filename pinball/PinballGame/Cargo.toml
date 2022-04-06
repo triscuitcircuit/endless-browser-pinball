@@ -1,5 +1,5 @@
 [package]
-name = "bevy-ios-example"
+name = "endless_pinball"
 version = "0.1.0"
 edition = "2021"
 
@@ -8,6 +8,11 @@ edition = "2021"
 [dependencies]
 bevy = { git ="https://github.com/ManevilleF/bevy", branch = "feat/bevy_ui_touch_input", vorbis = false }
 
-[lib]
+[[example]]
 name = "bevy_ios_example"
-crate-type = ["staticlib"] 
+path = "examples/bevy_ios_example.rs"
+crate-type = ["staticlib"]
+
+[[example]]
+path = "examples/bevy_game.rs"
+name = "bevy_game"
