@@ -152,7 +152,7 @@ fn main_menu_setup(mut commands: Commands,
                         ..Default::default()
                     },
                     text: Text::with_section(
-                        "Endless Pinball",
+                        "Endless Pinball: ",
                         TextStyle {
                             font: font.clone(),
                             font_size: 30.0,

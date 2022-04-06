@@ -3,3 +3,11 @@
 ** Technologies
 - The Rust programming language
 - Bevy Game engine
+- Xcode build tools
+** Compilation
+   Currently Endless Pinball is only tested on computer and iOS.
+*** Compiling for computer 
+   In order to compile for a computer version (regardless of operating system), one can use the command ~cargo run --example bevy_game~
+*** Compiling for mobile
+   In order to build for iOS, the latest Xcode build tools need to be installed.
+   Once installed, running ~make install~ in the `ios` directory will build the Xcode project.

@@ -10,8 +10,7 @@ bevy = { git ="https://github.com/ManevilleF/bevy", branch = "feat/bevy_ui_touch
 
 [[example]]
 name = "bevy_ios_example"
-path = "examples/bevy_ios_example.rs"
-crate-type = ["staticlib"]
+path = "examples/ios/src/lib.rs"
 
 [[example]]
 path = "examples/bevy_game.rs"

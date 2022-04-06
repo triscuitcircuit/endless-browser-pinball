@@ -1,4 +1,3 @@
-use endless_pinball;
 use endless_pinball::{app, Commands, UiCameraBundle, bevy_main};
 
 #[bevy_main]
