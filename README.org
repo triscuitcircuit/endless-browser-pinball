@@ -1,3 +1,5 @@
+#+ATTR_LaTeX: :align center
+[[file:images/icon.png]]
 * Endless Pinball
   Endless pinball smartphone game that connects to an accompanying site to display high scores.
 ** Technologies
