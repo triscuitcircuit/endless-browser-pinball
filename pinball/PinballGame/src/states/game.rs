@@ -1,9 +1,9 @@
-use bevy::{prelude::*};
-use bevy_kira_audio::{Audio, AudioPlugin, InstanceHandle, PlaybackState};
+use bevy::{prelude::*, audio::AudioSink};
+use bevy::input::touch::TouchPhase;
 
 use crate::{MenuButtonAction, SelectedOption};
-use crate::states::{game, GameTimer, HOVERED_BUTTON, HOVERED_PRESSED_BUTTON, MenuState, NORMAL_BUTTON, OnGameScreen, PRESSED_BUTTON};
-use crate::utils::sound::{LoopAudioInstanceHandle, stop_music};
+use crate::states::{pausemenu,game, GameTimer, HOVERED_BUTTON, HOVERED_PRESSED_BUTTON, MenuState, NORMAL_BUTTON, OnGameScreen, PRESSED_BUTTON};
+use crate::utils::sound::{LoopAudioInstanceHandle, set_vol, stop_music};
 
 
 use super::{despawn_screen, DisplayQuality, GameState, TEXT_COLOR, Volume};
@@ -18,14 +18,15 @@ impl Plugin for GamePlugin {
             .add_system_set(
                 SystemSet::on_update(GameState::Game)
                     .with_system(game)
-                    .with_system(pause_action)
+                    .with_system(set_vol)
                     .with_system(button_system)
+                    .with_system(pause_action)
             )
             .add_system_set(
                 SystemSet::on_exit(GameState::Game)
                     .with_system(despawn_screen::<OnGameScreen>)
                     .with_system(stop_music)
-                ,
+
             );
     }
 }
@@ -34,11 +35,14 @@ fn game_setup(
     mut commands: Commands,
     asset_server: Res<AssetServer>,
     audio: Res<Audio>,
+    audio_sinks: Res<Assets<AudioSink>>,
     mut meshes: ResMut<Assets<Mesh>>,
     mut materials: ResMut<Assets<StandardMaterial>>,
-    volume: Res<crate::Volume>,
 ) {
-    audio.set_volume(volume.0 as f32);
+    commands.spawn_bundle(PerspectiveCameraBundle {
+        transform: Transform::from_xyz(-2.0, 2.5, 5.0).looking_at(Vec3::ZERO, Vec3::Y),
+        ..default()
+    });
     commands.spawn_bundle(PbrBundle {
         mesh: meshes.add(Mesh::from(shape::Plane { size: 4.0 })),
         material: materials.add(Color::rgb(0.41, 0.05, 0.67).into()),
@@ -49,28 +53,28 @@ fn game_setup(
         transform: Transform::from_xyz(3.0, 8.0, 5.0),
         ..Default::default()
     });
-    let asset_handle= asset_server.load("music/Disco.ogg");
-    let instance_handle = audio.play_looped(asset_handle);
-    commands.insert_resource(LoopAudioInstanceHandle{instance_handle});
+    let asset_handle = asset_server.load("music/Disco.ogg");
+    let instance_handle = audio_sinks.get_handle(audio.play_in_loop(asset_handle));
+    commands.insert_resource(LoopAudioInstanceHandle(instance_handle));
     let button_style = Style {
-        size: Size::new(Val::Percent(80.0), Val::Percent(80.0)),
-        margin: Rect::all(Val::Px(20.0)),
+        // margin: Rect::all(Val::Px(20.0)),
         justify_content: JustifyContent::Center,
         align_items: AlignItems::Center,
         ..Default::default()
     };
     let button_text_style = TextStyle {
-        font: asset_server.load("fonts/FiraSans-Bold.ttf"),
-        font_size: 40.0,
+        font: asset_server.load("fonts/PressStart2P-Regular.ttf"),
+        font_size: 25.0,
         color: TEXT_COLOR,
     };
     commands
         // First create a `NodeBundle` for centering what we want to display
         .spawn_bundle(NodeBundle {
             style: Style {
+                 margin: Rect::all(Val::Px(20.0)),
                 // This will center the current node
-                margin: Rect::all(Val::Percent(1.0)),
-                size: Size{height: Val::Percent(8.0), width: Val::Percent(8.0)},
+                // margin: Rect::all(Val::Percent(1.0)),
+                size: Size{height: Val::Percent(10.0), width: Val::Percent(6.0)},
                 // This will display its children in a column, from top to bottom. Unlike
                 // in Flexbox, Bevy origin is on bottom left, so the vertical axis is reversed
                 flex_direction: FlexDirection::ColumnReverse,
@@ -102,7 +106,7 @@ fn game_setup(
     // let music = asset_server.load("music/Disco.ogg");
     // audio.play(music);
 
-    // let font = asset_server.load("fonts/FiraSans-Bold.ttf");
+    // let font = asset_server.load("fonts/PressStart2P-Regular.ttf");
     // Spawn a 5 seconds timer to trigger going back to the menu
     commands.insert_resource(GameTimer(Timer::from_seconds(5.0, false)));
 }
@@ -147,17 +151,21 @@ fn  pause_action(
     >,
     mut menu_state: ResMut<State<MenuState>>,
     mut game_state: ResMut<State<crate::GameState>>,
-    audio: Res<Audio>,
-    loop_audio: Res<LoopAudioInstanceHandle>,
+     audio: Res<Audio>,
+    audio_sinks: Res<Assets<AudioSink>>,
+     loop_audio: Res<LoopAudioInstanceHandle>,
 ) {
     for (interaction, menu_button_action) in interaction_query.iter() {
         if *interaction == Interaction::Clicked {
-            let state = audio.state(loop_audio.instance_handle.clone());
-            match state{
-                PlaybackState::Paused {..} => audio.resume(),
-                _ => audio.pause()
+            if let Some(sink) = audio_sinks.get(&loop_audio.0){
+                if sink.is_paused() {
+                    sink.play()
+                } else {
+                    sink.pause()
+                }
+                println!("paused status: {:?}", sink.is_paused());
             }
-            println!("Loop audio {:?}", state);
+            game_state.set(GameState::PauseMenu);
 
         }
     }

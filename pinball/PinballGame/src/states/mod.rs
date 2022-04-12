@@ -1,4 +1,5 @@
-use bevy::prelude::*;
+use bevy::{input::touch::TouchPhase, prelude::*, window::WindowMode};
+
 
 const NORMAL_BUTTON: Color = Color::rgb(0.15, 0.15, 0.15);
 const HOVERED_BUTTON: Color = Color::rgb(0.25, 0.25, 0.25);
@@ -11,6 +12,7 @@ const TEXT_COLOR: Color = Color::FUCHSIA;
 #[derive(Clone, Eq, PartialEq, Debug, Hash)]
 pub enum GameState {
     Splash,
+    PauseMenu,
     Menu,
     Game,
 }
@@ -34,15 +36,28 @@ pub enum DisplayQuality {
 #[derive(Debug, Component, PartialEq, Eq, Clone, Copy)]
 pub struct Volume(pub u32);
 
-impl Volume {
-    pub fn get_volume(&self) ->u32{
-        self.0
-    }
-}
+
 // Generic system that takes a component as a parameter, and will despawn all entities with that component
 pub fn despawn_screen<T: Component>(to_despawn: Query<Entity, With<T>>, mut commands: Commands) {
     for entity in to_despawn.iter() {
         commands.entity(entity).despawn_recursive();
+    }
+}
+// This system handles changing all buttons color based on mouse interaction
+pub fn button_system(
+    mut interaction_query: Query<
+        (&Interaction, &mut UiColor, Option<&SelectedOption>),
+        (Changed<Interaction>, With<Button>),
+    >,
+) {
+    for (interaction, mut color, selected) in interaction_query.iter_mut() {
+        *color = match (*interaction, selected) {
+            (Interaction::Clicked, _) => PRESSED_BUTTON.into(),
+            (Interaction::Hovered, Some(_)) => HOVERED_PRESSED_BUTTON.into(),
+            (Interaction::Hovered, None) => HOVERED_BUTTON.into(),
+            (Interaction::None, Some(_)) => PRESSED_BUTTON.into(),
+            (Interaction::None, None) => NORMAL_BUTTON.into(),
+        }
     }
 }
 
@@ -55,6 +70,14 @@ enum MenuState {
     Main,
     Settings,
     SettingsDisplay,
+    SettingsSound,
+    Disabled,
+}
+
+#[derive(Clone, Eq, PartialEq, Debug, Hash)]
+enum PauseState {
+    Main,
+    LeaderBoard,
     SettingsSound,
     Disabled,
 }
@@ -91,10 +114,21 @@ pub enum MenuButtonAction {
     BackToSettings,
     Quit,
 }
+#[derive(Component)]
+pub enum PauseButtonAction {
+    BackToGame,
+    SettingsSound,
+    Leaderboards,
+    BackToMainMenu,
+}
 
 // Tag component used to tag entities added on the splash screen
 #[derive(Component)]
 pub struct OnSplashScreen;
+
+
+#[derive(Component)]
+pub struct OnPauseMenuScreen;
 
 // Newtype to use a `Timer` for this screen as a resource
 pub struct SplashTimer(Timer);

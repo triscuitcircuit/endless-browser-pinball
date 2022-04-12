@@ -29,7 +29,7 @@
         \vspace{1.5cm}
         for\\
         \vspace{1.5cm}
-        Project\\
+        Endless Pinball\\
         \vspace{1.5cm}
         \LARGE{Version \myversion}\\
         \vspace{1.5cm}
@@ -39,7 +39,7 @@
        Gedeon Rugema\\
     Connor Lariviere\\ 
         \vspace{1.5cm}
-        Organization : CityCircuit\\
+        Organization : CircuitCity\\
         \vspace{1.5cm}
         \today\\
     \clearpage
@@ -55,6 +55,8 @@
   |---+---+---+---|
   | Tristan, Donato, David, Gedeon, Connor  | 2/18/2022  | Added Functional Requirements  |  0.01 |
    | Tristan, Donato, David, Gedeon, Connor  | 3/2/2022  |  |  0.02 |
+   | Tristan, David   | 3/30/2022  | Added Overall Description |  0.03 |
+
 * Introduction
 ** Purpose
 The purpose of this document is to outline the requirement specification for the Endless Pinball game and its connected website. The scope of this document is to outline the interactions the user would have with the game, as well as to highlight what needs to be done during the development phase of this project. 
@@ -64,12 +66,24 @@ The purpose of this document is to outline the requirement specification for the
 ** References
 * Overall Description
 ** Product Perspective
+This SRS defines a new self-contained product that will exist on its own on mobile devices. The context of this SRS explains both the application and the accompanying website. 
 ** Product Functions
+The application is designed to be a continuous point scoring video game until failure.The player will have tools to move across their infinite board while collecting points which will be counted until the player loses its life variable.
+- Touch Input to move pinball
+- Avoid Obstacles to maintain lives
+- Rewards/Objectives on the board to increase score
 ** User Classes and Characteristics
+We anticipate that iOS and Android users will use this product, and that they will have a simple understanding of how menus work. We also anticipate that the players would already be familiar with being able to read online leaderboards. 
 ** Operating Environment
+The software will operate on modern smartphone devices, such as the most recent update of IOS and Android (as of 3/22/2022). 
 ** Design and Implementation Constraints
+This application will be created with the Bevy game engine, which is a relatively new game engine compared to Unity or Godot. Bevy doesn’t currently have much support for smartphone builds, however pull requests are being added everyday that add functionality. With the Bevy game engine, the game will be architectured in the ECS (Entity–Component–System) paradigm. This software will also be written in the Rust programming language due to the fact that it's a low level language, but also easy to set up and doesn’t have as many safety vulnerabilities compared to C and C++. The application will use POST and GET requests to communicate with the associated website. 
+\\
+The associated website will use the Rust Sauron and Diesel.rs to display and manage the score database. Because of the access to a persistent database, we will be taking extra consideration in using an ORM (Diesel.rs) instead of directly communicating with the Postgres database. 
 ** User Documentation
+Documentation will be provided in the form of Youtube videos explaining aspects of the application, such as uploading your score or how to play the game. 
 ** Assumptions and Dependencies
+We assume that the Rust programming language is able to communicate with and make HTTP requests to the website through a mobile application, and we also assume that it will be able to access the filesystem of the mobile device without any restrictions as to save data about the game. 
 * External Interface Requirements
 ** User Interfaces
 The software outlined in this document will have two sets of user interfaces, one for the website and one for the Endless Pinball game itself. 
@@ -79,9 +93,7 @@ The software outlined in this document will have two sets of user interfaces, on
 The game will interact with the phones vibration motors to make the game more interactive, and could also interact with the phones gyro sensor to control the pinball. The game will also interact with the phones internal GPU in order to render the game. 
 ** Software Interfaces
 ** Communications Interfaces
-The game will use GET requests in the form of JSON to the game application,
-and the game application will use POST to post user uploaded pictures and the high score from the user. Communication is done between the website
-and the Endless Browser game application, allowing users to upload their high score. 
+The game will use GET requests in the form of JSON to the game application, and the game application will use POST to post user uploaded pictures and the high score from the user. 
 * System Features
 <This template illustrates organizing the functional requirements for the product by system
 features, the major services provided by the product. You may prefer to organize this section by
@@ -127,10 +139,13 @@ Functional Requirements are as follows for both the Endless Pinball app and the 
 * Other Requirements
 ** Appendix A: Glossary
    :PROPERTIES:
-   :UNNUMBERED: notoc
+   :UNNUMBERED: t
    :END:
-- MVC (Model View Controller): :: Model View Controller is a design pattern defining interaction between View, Controllers and Models. 
+- MVC (Model View Controller): :: Software design pattern commonly associated with user interfaces that divide into connected elements such as: the /Model/, /View/, and the /Controller/
+- ECS (Entity Component System): :: System architecture paradigm that follows composition of “entities” with associated “types” [[https://www.richardlord.net/blog/ecs/why-use-an-entity-framework.html][ECS architecture description]]
 ** Appendix B: Analysis Models
    :PROPERTIES:
-   :UNNUMBERED: notoc
+   :UNNUMBERED: t
    :END:
+
+

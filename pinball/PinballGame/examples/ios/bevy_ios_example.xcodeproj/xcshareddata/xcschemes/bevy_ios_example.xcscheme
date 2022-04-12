@@ -15,8 +15,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "3BDB8152E4962373181B4FE5"
-               BuildableName = "bevy_ios_example.app"
-               BlueprintName = "bevy_ios_example"
+               BuildableName = "Endless Pinball.app"
+               BlueprintName = "Endless Pinball"
                ReferencedContainer = "container:bevy_ios_example.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -45,8 +45,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "3BDB8152E4962373181B4FE5"
-            BuildableName = "bevy_ios_example.app"
-            BlueprintName = "bevy_ios_example"
+            BuildableName = "Endless Pinball.app"
+            BlueprintName = "Endless Pinball"
             ReferencedContainer = "container:bevy_ios_example.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -62,8 +62,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "3BDB8152E4962373181B4FE5"
-            BuildableName = "bevy_ios_example.app"
-            BlueprintName = "bevy_ios_example"
+            BuildableName = "Endless Pinball.app"
+            BlueprintName = "Endless Pinball"
             ReferencedContainer = "container:bevy_ios_example.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>

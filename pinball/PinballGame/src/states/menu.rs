@@ -1,7 +1,10 @@
-use bevy::{app::AppExit, prelude::*};
+use bevy::{input::touch::TouchPhase, prelude::*, window::WindowMode, app::AppExit};
+use bevy::audio::AudioSink;
+
 use crate::states::*;
+use crate::utils::sound::{LoopAudioInstanceHandle, set_vol, stop_music};
 
-
+use super::{Volume};
 // This plugin manages the menu, with 5 different screens:
 // - a main menu with "New Game", "Settings", "Quit"
 // - a settings menu with two submenus and a back button
@@ -18,9 +21,14 @@ impl Plugin for MenuPlugin {
             .add_system_set(SystemSet::on_enter(GameState::Menu).with_system(menu_setup))
             // Systems to handle the main menu screen
             .add_system_set(SystemSet::on_enter(MenuState::Main).with_system(main_menu_setup))
+                .add_system_set(
+                    SystemSet::on_update(MenuState::Main)
+                        .with_system(set_vol)
+                )
             .add_system_set(
                 SystemSet::on_exit(MenuState::Main)
-                    .with_system(despawn_screen::<OnMainMenuScreen>),
+                    .with_system(despawn_screen::<OnMainMenuScreen>)
+                    .with_system(stop_music)
             )
             // Systems to handle the settings menu screen
             .add_system_set(
@@ -88,8 +96,15 @@ fn setting_button<T: Component + PartialEq + Copy>(
     }
 }
 
-fn main_menu_setup(mut commands: Commands, asset_server: Res<AssetServer>) {
-        let font = asset_server.load("fonts/FiraSans-Bold.ttf");
+fn main_menu_setup(mut commands: Commands,
+                   asset_server: Res<AssetServer>,
+                   audio: Res<Audio>,
+                   audio_sinks: Res<Assets<AudioSink>>,
+) {
+        let asset_handle = asset_server.load("music/CasualArcade.ogg");
+        let instance_handle = audio_sinks.get_handle(audio.play_in_loop(asset_handle));
+        commands.insert_resource(LoopAudioInstanceHandle(instance_handle));
+        let font = asset_server.load("fonts/PressStart2P-Regular.ttf");
         // Common style for all buttons on the screen
         let button_style = Style {
             size: Size::new(Val::Px(250.0), Val::Px(65.0)),
@@ -113,7 +128,7 @@ fn main_menu_setup(mut commands: Commands, asset_server: Res<AssetServer>) {
         };
         let button_text_style = TextStyle {
             font: font.clone(),
-            font_size: 40.0,
+            font_size: 25.0,
             color: TEXT_COLOR,
         };
 
@@ -137,10 +152,10 @@ fn main_menu_setup(mut commands: Commands, asset_server: Res<AssetServer>) {
                         ..Default::default()
                     },
                     text: Text::with_section(
-                        "Endless Pinball",
+                        "Endless Pinball: ",
                         TextStyle {
                             font: font.clone(),
-                            font_size: 80.0,
+                            font_size: 30.0,
                             color: TEXT_COLOR,
                         },
                         Default::default(),
@@ -198,25 +213,6 @@ fn main_menu_setup(mut commands: Commands, asset_server: Res<AssetServer>) {
                             ..Default::default()
                         });
                     });
-                parent
-                    .spawn_bundle(ButtonBundle {
-                        style: button_style,
-                        color: NORMAL_BUTTON.into(),
-                        ..Default::default()
-                    })
-                    .insert(MenuButtonAction::Quit)
-                    .with_children(|parent| {
-                        let icon = asset_server.load("textures/Game Icons/exitRight.png");
-                        parent.spawn_bundle(ImageBundle {
-                            style: button_icon_style,
-                            image: UiImage(icon),
-                            ..Default::default()
-                        });
-                        parent.spawn_bundle(TextBundle {
-                            text: Text::with_section("Quit", button_text_style, Default::default()),
-                            ..Default::default()
-                        });
-                    });
             });
     }
 
@@ -229,8 +225,8 @@ fn settings_menu_setup(mut commands: Commands, asset_server: Res<AssetServer>) {
         ..Default::default()
     };
     let button_text_style = TextStyle {
-        font: asset_server.load("fonts/FiraSans-Bold.ttf"),
-        font_size: 40.0,
+        font: asset_server.load("fonts/PressStart2P-Regular.ttf"),
+        font_size: 25.0,
         color: TEXT_COLOR,
     };
 
@@ -312,8 +308,8 @@ fn display_settings_menu_setup(
         ..Default::default()
     };
     let button_text_style = TextStyle {
-        font: asset_server.load("fonts/FiraSans-Bold.ttf"),
-        font_size: 40.0,
+        font: asset_server.load("fonts/PressStart2P-Regular.ttf"),
+        font_size: 25.0,
         color: TEXT_COLOR,
     };
 
@@ -410,8 +406,8 @@ fn sound_settings_menu_setup(
         ..Default::default()
     };
     let button_text_style = TextStyle {
-        font: asset_server.load("fonts/FiraSans-Bold.ttf"),
-        font_size: 40.0,
+        font: asset_server.load("fonts/PressStart2P-Regular.ttf"),
+        font_size: 25.0,
         color: TEXT_COLOR,
     };
 
@@ -446,7 +442,7 @@ fn sound_settings_menu_setup(
                         ),
                         ..Default::default()
                     });
-                    for volume_setting in [0, 1, 2, 3, 4, 5, 6, 7, 8, 9] {
+                    for volume_setting in [0,1,2,3,4,5] {
                         let mut entity = parent.spawn_bundle(ButtonBundle {
                             style: Style {
                                 size: Size::new(Val::Px(30.0), Val::Px(65.0)),
@@ -477,24 +473,6 @@ fn sound_settings_menu_setup(
         });
 }
 
-// This system handles changing all buttons color based on mouse interaction
-fn button_system(
-    mut interaction_query: Query<
-        (&Interaction, &mut UiColor, Option<&SelectedOption>),
-        (Changed<Interaction>, With<Button>),
-    >,
-) {
-    for (interaction, mut color, selected) in interaction_query.iter_mut() {
-        *color = match (*interaction, selected) {
-            (Interaction::Clicked, _) => PRESSED_BUTTON.into(),
-            (Interaction::Hovered, Some(_)) => HOVERED_PRESSED_BUTTON.into(),
-            (Interaction::Hovered, None) => HOVERED_BUTTON.into(),
-            (Interaction::None, Some(_)) => PRESSED_BUTTON.into(),
-            (Interaction::None, None) => NORMAL_BUTTON.into(),
-        }
-    }
-}
-
 fn menu_action(
     interaction_query: Query<
             (&Interaction, &MenuButtonAction),
@@ -506,6 +484,7 @@ fn menu_action(
     ) {
     for (interaction, menu_button_action) in interaction_query.iter() {
         if *interaction == Interaction::Clicked {
+            println!("clicked");
             match menu_button_action {
                 MenuButtonAction::Quit => app_exit_events.send(AppExit),
                 MenuButtonAction::Play => {

@@ -1,14 +1,17 @@
 [package]
-name = "PinballGame"
+name = "endless_pinball"
 version = "0.1.0"
 edition = "2021"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-bevy = { version = "0.6", bevy_audio = false, vorbis = false }
-bevy_kira_audio = "0.8.0"
+bevy = { git ="https://github.com/ManevilleF/bevy", branch = "feat/bevy_ui_touch_input", vorbis = false }
 
-#[lib]
-#name = "PinballGame"
-#crate-type = ["staticlib"]
+[[example]]
+name = "bevy_ios_example"
+path = "examples/ios/src/lib.rs"
+
+[[example]]
+path = "examples/bevy_game.rs"
+name = "bevy_game"
