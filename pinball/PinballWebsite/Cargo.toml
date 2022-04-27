@@ -8,8 +8,14 @@ edition = "2021"
 
 [dependencies]
 diesel = { version = "1.4.4", features = ["postgres", "chrono"] }
+diesel_migrations = "1.4.0"
 dotenv = "*"
 serde = { version = "1.0.123", features = ["derive"] }
-rocket = "0.4.1"
-rocket_codegen = "0.4.1"
+rocket = "0.4.2"
+rocket_codegen = "0.4.2"
 chrono = "0.4"
+
+[dependencies.rocket_contrib]
+version = "0.4.2"
+default-features = false
+features = ["json"]

@@ -8,8 +8,8 @@ table! {
 table! {
     scores (id) {
         id -> Int4,
-        epoch -> Date,
         users -> Int4,
+        epoch -> Varchar,
     }
 }
 

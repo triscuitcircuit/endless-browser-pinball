@@ -11,7 +11,7 @@ CREATE TABLE IF NOT EXISTS users(
 );
 CREATE TABLE IF NOT EXISTS scores(
      id SERIAL PRIMARY KEY,
-     epoch date NOT NULL,
      users INTEGER NOT NULL,
+     epoch VARCHAR NOT NULL,
      FOREIGN KEY (users) REFERENCES users(id)
 );
